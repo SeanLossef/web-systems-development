@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<favorite_songs>
+
+<song>
+  <title>Sunday Morning</title>
+  <artist>Maroon 5</artist>
+  <album>Songs about Jane</album>
+  <album_cover> </album_cover>
+  <date>2002-06-25</date>
+  <genres>
+    <genre>Jazz Fusion</genre>
+    <genre>Pop</genre>
+  </genres>
+</song>
+
+<song>
+  <title>Keep It Simple (ft. Stormzy)</title>
+  <artist>Raleigh Ritchie</artist>
+  <album>You're a Man Now, Boy</album>
+  <album_cover> </album_cover>
+  <date>2016</date>
+  <genres>
+    <genre>Pop</genre>
+  </genres>
+</song>
+
+<song>
+  <title>Technicolor Dreams</title>
+  <artist>Bee Gees</artist>
+  <album>This Is Where I Came In</album>
+  <album_cover> </album_cover>
+  <date>2001-04-24</date>
+  <genres>
+    <genre>Dance</genre>
+    <genre>Electronic</genre>
+  </genres>
+</song>
+
+<song>
+  <title>Dandelion</title>
+  <artist>OOHYO</artist>
+  <album>Dandelion</album>
+  <album_cover> </album_cover>
+  <date>2017</date>
+  <genres>
+    <genre>Indie</genre>
+    <genre>Pop</genre>
+  </genres>
+</song>
+
+<song>
+  <title>Everytime</title>
+  <artist>Boy Pablo</artist>
+  <album>Roy Pablo - EP</album>
+  <album_cover> </album_cover>
+  <date>2017-05-19</date>
+  <genres>
+    <genre>Alternative</genre>
+    <genre>Indie</genre>
+    <genre>Pop</genre>
+  </genres>
+</song>
+
+<song>
+  <title>Nobody</title>
+  <artist>Mitski</artist>
+  <album>Be the Cowboy</album>
+  <album_cover> </album_cover>
+  <date>2018-08-17</date>
+  <genres>
+    <genre>Alternative</genre>
+    <genre>Indie</genre>
+  </genres>
+</song>
+
+<song>
+  <title>Buttercup</title>
+  <artist>Jack Stauber</artist>
+  <album>Pop Food</album>
+  <album_cover> </album_cover>
+  <date>2017-03-2017</date>
+  <genres>
+    <genre>Pop</genre>
+  </genres>
+</song>
+
+<song>
+  <title>Can't Fight This Feeling</title>
+  <artist>REO Speedwagon</artist>
+  <album>Wheels Are Turnin'</album>
+  <album_cover> </album_cover>
+  <date>1984</date>
+  <genres>
+    <genre>Rock</genre>
+  </genres>
+</song>
+
+<song>
+  <title>LEMONS</title>
+  <artist>Shawn Wasabi</artist>
+  <album>Mangotale</album>
+  <album_cover> </album_cover>
+  <date>2020-05-29</date>
+  <genres>
+    <genre>Pop</genre>
+  </genres>
+</song>
+
+<song>
+  <title>City Girls</title>
+  <artist>GOLDA</artist>
+  <album>The GOLDA Complex</album>
+  <album_cover> </album_cover>
+  <date>2018-03-16</date>
+  <genres>
+    <genre>R&amp;B</genre>
+    <genre>Soul</genre>
+  </genres>
+</song>
+
+</favorite_songs>
