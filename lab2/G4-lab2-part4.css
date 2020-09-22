@@ -1,0 +1,34 @@
+favorite_songs {
+    display: table;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 40px;
+}
+
+song {
+    display: table-row;
+    background: #00000007;
+}
+
+song > * {
+    display: table-cell;
+    font-size: 20px;
+    padding: 10px;
+}
+
+title {
+    font-size: 0.9rem;
+}
+
+artist {
+    color: blue;
+}
+
+album {
+    font-style: italic;
+}
+
+img {
+    height: 100px;
+    width: 100px;
+}

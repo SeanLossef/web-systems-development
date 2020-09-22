@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<favorite_songs>
+<?xml-stylesheet type="text/css" href="G4-lab2-part4.css"?>
+
+<favorite_songs xmlns:html="http://www.w3.org/1999/xhtml">
 
 <song>
   <title>Sunday Morning</title>
-  <artist>Maroon 5</artist>
-  <album>Songs about Jane</album>
-  <album_cover> </album_cover>
+  <artist>
+    <a class="artist" href="https://www.maroon5.com/">Maroon 5</a>
+  </artist>
+  <album>
+    <a class="album" href="https://genius.com/albums/Maroon-5/Songs-about-jane">Songs About Jane</a>
+  </album>
+  <album_cover>
+    <img src="albumcovers/Maroon5.jpg" alt="Songs About Jane album cover" />
+  </album_cover>
   <date>2002-06-25</date>
   <genres>
     <genre>Jazz Fusion</genre>
@@ -15,9 +23,15 @@
 
 <song>
   <title>Keep It Simple (ft. Stormzy)</title>
-  <artist>Raleigh Ritchie</artist>
-  <album>You're a Man Now, Boy</album>
-  <album_cover> </album_cover>
+  <artist>
+    <a class="artist" href="http://www.raleighritchie.com/">Raleigh Ritchie</a>
+  </artist>
+  <album>
+    <a class="album" href="https://genius.com/albums/Raleigh-ritchie/You-re-a-man-now-boy">You're a Man Now, Boy</a>
+  </album>
+  <album_cover>
+    <img src="albumcovers/RaleighRitchie.jpg" alt="You're a Man Now, Boy album cover" />
+  </album_cover>
   <date>2016</date>
   <genres>
     <genre>Pop</genre>
@@ -26,9 +40,15 @@
 
 <song>
   <title>Technicolor Dreams</title>
-  <artist>Bee Gees</artist>
-  <album>This Is Where I Came In</album>
-  <album_cover> </album_cover>
+  <artist>
+    <a class="artist" href="https://www.beegees.com/">Bee Gees</a>
+  </artist>
+  <album>
+    <a class="album" href="https://genius.com/albums/Bee-gees/This-is-where-i-came-in">This Is Where I Came In</a>
+  </album>
+  <album_cover>
+    <img src="albumcovers/BeeGees.jpg" alt="This Is Where I Came In album cover" />
+  </album_cover>
   <date>2001-04-24</date>
   <genres>
     <genre>Dance</genre>
@@ -38,9 +58,15 @@
 
 <song>
   <title>Dandelion</title>
-  <artist>OOHYO</artist>
-  <album>Dandelion</album>
-  <album_cover> </album_cover>
+  <artist>
+    <a class="artist" href="https://www.munhwain.kr/blank">OOHYO</a>
+  </artist>
+  <album>
+    <a class="album" href="https://genius.com/albums/Oohyo/Dandelion">Dandelion</a>
+  </album>
+  <album_cover>
+    <img src="albumcovers/OOHYO.jpg" alt="Dandelion album cover" />
+  </album_cover>
   <date>2017</date>
   <genres>
     <genre>Indie</genre>
@@ -50,9 +76,15 @@
 
 <song>
   <title>Everytime</title>
-  <artist>Boy Pablo</artist>
-  <album>Roy Pablo - EP</album>
-  <album_cover> </album_cover>
+  <artist>
+    <a class="artist" href="https://www.boypablo.com/">Boy Pablo</a>
+  </artist>
+  <album>
+    <a class="album" href="https://genius.com/albums/Boy-pablo/Roy-pablo-ep">Roy Pablo - EP</a>
+  </album>
+  <album_cover>
+    <img src="albumcovers/BoyPablo.jpg" alt="Roy Pablo - EP album cover" />
+  </album_cover>
   <date>2017-05-19</date>
   <genres>
     <genre>Alternative</genre>
@@ -63,9 +95,15 @@
 
 <song>
   <title>Nobody</title>
-  <artist>Mitski</artist>
-  <album>Be the Cowboy</album>
-  <album_cover> </album_cover>
+  <artist>
+    <a class="artist" href="https://mitski.com/">Mitski</a>
+  </artist>
+  <album>
+    <a class="album" href="https://genius.com/albums/Mitski/Be-the-cowboy">Be the Cowboy</a>
+  </album>
+  <album_cover>
+    <img src="albumcovers/Mitski.jpg" alt="Be the Cowboy album cover" />
+  </album_cover>
   <date>2018-08-17</date>
   <genres>
     <genre>Alternative</genre>
@@ -75,9 +113,15 @@
 
 <song>
   <title>Buttercup</title>
-  <artist>Jack Stauber</artist>
-  <album>Pop Food</album>
-  <album_cover> </album_cover>
+  <artist>
+    <a class="artist" href="https://jackstauber.com/">Jack Stauber</a>
+  </artist>
+  <album>
+    <a class="album" href="https://genius.com/albums/Jack-stauber/Pop-food">Pop Food</a>
+  </album>
+  <album_cover>
+    <img src="albumcovers/JackStauber.jpg" alt="Pop Food album cover" />
+  </album_cover>
   <date>2017-03-2017</date>
   <genres>
     <genre>Pop</genre>
@@ -86,9 +130,15 @@
 
 <song>
   <title>Can't Fight This Feeling</title>
-  <artist>REO Speedwagon</artist>
-  <album>Wheels Are Turnin'</album>
-  <album_cover> </album_cover>
+  <artist>
+    <a class="artist" href="http://reospeedwagon.com/">REO Speedwagon</a>
+  </artist>
+  <album>
+    <a class="album" href="https://genius.com/albums/Reo-speedwagon/Wheels-are-turnin">Wheels Are Turnin'</a>
+  </album>
+  <album_cover>
+    <img src="albumcovers/REOSpeedwagon.jpg" alt="Wheels Are Turnin' album cover" />
+  </album_cover>
   <date>1984</date>
   <genres>
     <genre>Rock</genre>
@@ -97,9 +147,15 @@
 
 <song>
   <title>LEMONS</title>
-  <artist>Shawn Wasabi</artist>
-  <album>Mangotale</album>
-  <album_cover> </album_cover>
+  <artist>
+    <a class="artist" href="https://www.shawnwasabi.com/?frontpage=true">Shawn Wasabi</a>
+  </artist>
+  <album>
+    <a class="album" href="https://genius.com/albums/Shawn-wasabi/Mangotale">Mangotale</a>
+  </album>
+  <album_cover>
+    <img src="albumcovers/ShawnWasabi.png" alt="Mangotale album cover" />
+  </album_cover>
   <date>2020-05-29</date>
   <genres>
     <genre>Pop</genre>
@@ -108,9 +164,15 @@
 
 <song>
   <title>City Girls</title>
-  <artist>GOLDA</artist>
-  <album>The GOLDA Complex</album>
-  <album_cover> </album_cover>
+  <artist>
+    <a class="artist" href="https://www.facebook.com/lostwithgolda/">GOLDA</a>
+  </artist>
+  <album>
+    <a class="album" href="https://genius.com/albums/Golda/The-golda-complex">The GOLDA Complex</a>
+  </album>
+  <album_cover>
+    <img src="albumcovers/GOLDA.png" alt="The GOLDA Complex album cover" />
+  </album_cover>
   <date>2018-03-16</date>
   <genres>
     <genre>R&amp;B</genre>

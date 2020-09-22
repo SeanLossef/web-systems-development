@@ -1,0 +1,82 @@
+h1 {
+    text-align: center;
+}
+
+ul#songs {
+    width: 100%;
+    list-style: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: table;
+    border: 1px solid #999;
+}
+
+ul#songs > li {
+    display: table-row;
+    background: #00000011;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+ul#songs li h2 {
+    display: table-cell;
+    font-variant: small-caps;
+    text-align: center;
+    vertical-align: middle;
+}
+
+ul#songs li:first-child h2 {
+    color: green;
+}
+
+ul#songs li .header {
+    display: table-cell;
+    font-weight: bold;
+}
+
+ul#songs li .artist {
+    display: table-cell;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    vertical-align: middle;
+}
+
+ul#songs li .album {
+    display: table-cell;
+    text-align: center;
+    font-style: italic;
+    vertical-align: middle;
+}
+
+ul#songs li img {
+    display: table-cell;
+    width: 100px;
+    height: 100px;
+    vertical-align: middle;
+}
+
+ul#songs li time {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 0.8rem;
+}
+
+ul#songs li .genres {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+ul#songs li .genres ul li {
+    font-size: 0.8rem;
+    text-align: left;
+}
+
+ul#songs li .end {
+    display: table-cell;
+    font-size: 0.8rem;
+    font-style: italic;
+}
