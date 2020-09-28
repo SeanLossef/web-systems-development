@@ -1,15 +1,19 @@
 /*** FONT IMPORTS: ***/
 @import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;600&display=swap');
 
 /*** GENERAL ELEMENTS: ***/
 :root {
-    --light-color-main: #f5f5f5;
-    --medium-color-main: #6B818C;
     --dark-color-main: #172A3A;
-    --pop-color1: #FED766;
-    --pop-color2: #db5461;
+    --pop-color1: #db5461;
+
+    --dark-color-pa: #262A2C;
+    --med-color-pa: #3D5B66;
+    --light-color-pa: #80A5B3;
+    --dark-color2-pa: #9e4842;
+    --med-color2-pa: #CC8B86;
+    --light-color2-pa: #F9EAE1;
 }
 * {
     box-sizing: border-box;
@@ -59,6 +63,9 @@ a {
     letter-spacing: 15px;
     margin-bottom: 0;
 }
+#homePage h3 {
+    font-size: 25px;
+}
 #homePage h2 {
     font-family: "Work Sans", sans-serif;
     margin-top: 0;
@@ -101,7 +108,7 @@ a {
     margin: 10px 5%;
 }
 .teamNames a:hover {
-    color: var(--pop-color2);
+    color: var(--pop-color1);
     animation-duration: 0.5s;
 }
 .teamPhotos, .teamNames{
@@ -139,43 +146,132 @@ a {
     overflow: auto; 
     margin-bottom: 20px;
 }
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+background: #888; 
+}
+::-webkit-scrollbar-thumb:hover {
+background: #555; 
+}
 
 
 
 
 /*** INDIVIDUAL PAGES: ***/
 /* Patricia Acorda: */
-nav {
-    height: 10%;
+#acordpPage {
+    color: var(--dark-color-pa);
+    background-image: url("photos/patriciaBackground.png");
+    background-size: cover;
 }
 
-.topBanner.pa {
-    height: 40%;
+#acordpPage h2 {
+    color: var(--dark-color2-pa);
+    margin: 0 0 40px 0;
 }
-.fn.pa {
+#acordpPage h4 {
+    font-size: 18px;
+    color: var(--med-color-pa);
+    margin: 0;
+}
+#acordpPage li {
+    margin: 0 0 30px 0;
+}
+#acordpPage p.bold {
+    font-weight: 600;
+}
+#acordpPage p {
+    margin: 10px 0;
+}
+#acordpPage a {
+    font-family: 'Ubuntu', sans-serif;
+    color: var(--dark-color-pa);
+    display: inline-block;
+}
+#acordpPage img {
+    height: 250px;
+    border-radius: 15px;
+}
+#acordpPage .vcard {
+    font-family: 'Ubuntu', sans-serif;
+    color: var(--dark-color-pa);
+}
+#acordpPage .email {
+    color: var(--med-color-pa);
+}
+#acordpPage .email:hover {
+    color: var(--dark-color2-pa);
+}
+/* #leftBanner: */
+#acordpPage #leftBanner {
+    height: 100vh;
+    text-align: left;
+    width: 40%;
+    float: left;
+    padding: 12% 8%;
+    background: rgba(128, 165, 179, 0.2);
+    position: fixed;
+}
+#acordpPage .fn {
     font-family: 'Secular One', sans-serif;
     font-size: 50px;
     letter-spacing: 5px;
-    text-align: center;
     margin-bottom: 0;
 }
-.intro.pa {
+#acordpPage .intro {
     font-family: 'Secular One', sans-serif;
     font-size: 20px;
+    margin-top: 0;
+}
+#acordpPage .footer {
+    margin-top: 150px;
+}
+/* nav: */
+#acordpPage nav {
+    right: 0;
+    width: 60%;
+    background: rgba(204, 139, 134, 0.8);
+    color: var(--dark-color2-pa);
+    height: 50px;
+    padding: 1%;
+    position: fixed;
+}
+#acordpPage nav a {
+    color: var(--dark-color2-pa);
+    font-size: 18px;
+    display: inline-block;
     text-align: center;
-    margin-top: 0;
+    width: 160px;
+    border-radius: 10px;
+    height: 100%;
+    margin: 0 2%;
+}
+#acordpPage nav a:hover {
+    color: var(--light-color2-pa) !important;
+    animation-duration: 0.5s;
+}
+/* sub-sections: */
+#acordpPage #aboutMe {
+    float: right;
+    width: 60%;
+    height: 90%;
+    padding: 10% 5% 5% 5%;
+}
+#acordpPage .subSections {
+    color: var(--med-color-pa);
+}
+#acordpPage div.Education, #acordpPage div.WorkExperience, #acordpPage div.Skills {
+    display: none;
+    float: right;
+    width: 60%;
+    height: 90%;
+    padding: 10% 5% 5% 5%;
 }
 
-.middleBanner {
-    height: 40%;
-}
-h2.pa {
-    margin-bottom: 0;
-}
-.eduList, .workList {
-    margin-top: 0;
-}
 
-.footer {
-    height: 10%;
-}
