@@ -1,0 +1,181 @@
+/*** FONT IMPORTS: ***/
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap');
+
+/*** GENERAL ELEMENTS: ***/
+:root {
+    --light-color-main: #f5f5f5;
+    --medium-color-main: #6B818C;
+    --dark-color-main: #172A3A;
+    --pop-color1: #FED766;
+    --pop-color2: #db5461;
+}
+* {
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+    min-height: 100%;
+}
+body {
+    margin: 0 auto;
+    background-color: var(--light-color-main);
+}
+
+h1 {
+    font-family: 'Secular One', sans-serif;
+}
+h2, h3, h4 {
+    font-family: 'Ubuntu', sans-serif;
+}
+p {
+    font-family: 'Work Sans', sans-serif;
+}
+/* removes the extra padding & bullets for all unordered lists */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+a {
+    text-decoration: none;
+}
+
+
+/*** HOME PAGE: ***/
+#homePage {
+    color: var(--dark-color-main);
+    background-image: url("photos/homeBackground.png");
+    background-size: cover;
+}
+#homePage .topBanner {
+    text-align: center;
+    height: 20%;
+    margin: 20px 0;
+}
+#homePage h1 {
+    font-size: 60px;
+    letter-spacing: 15px;
+    margin-bottom: 0;
+}
+#homePage h2 {
+    font-family: "Work Sans", sans-serif;
+    margin-top: 0;
+}
+#homePage h4 {
+    font-size: 15px;
+    display: block;
+    margin: 0 0 10px 0;
+}
+#homePage p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+/* middleBanner: */
+#homePage .middleBanner {
+    text-align: center;
+}
+#teamSection, #projSection {
+    width: 35%;
+    margin-top: 40px;
+    background: rgba(235, 235, 235, 0.7);
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+#teamSection {
+    float: left;
+    margin-left: 12%;
+}
+#projSection {
+    float: right;
+    margin-right: 12%;
+}
+/* #teamSection: */
+.teamNames a {
+    font-family: 'Ubuntu', sans-serif;
+    color: var(--dark-color-main);
+    display: inline-block;
+    width: 140px;
+    margin: 10px 5%;
+}
+.teamNames a:hover {
+    color: var(--pop-color2);
+    animation-duration: 0.5s;
+}
+.teamPhotos, .teamNames{
+    display: block;
+}
+#homePage img {
+    object-fit: cover;
+}
+#homePage img.portrait{
+    width: 140px;
+    height: 140px;
+    border-radius: 10px;
+    margin: 10px 5%;
+}
+#homePage .spacer {
+    margin-bottom: 30px;
+    display: block;
+}
+/* #projSection: */
+#homePage img.project {
+    float: right;
+    width: 38%;
+}
+#homePage li p {
+    font-size: 14px;
+    float: left;
+    width: 60%;
+    margin: 0;
+    padding: 0 5px 0 0;
+}
+#homePage .projectDesc {
+    display: block;
+}
+#homePage li {
+    overflow: auto; 
+    margin-bottom: 20px;
+}
+
+
+
+
+/*** INDIVIDUAL PAGES: ***/
+/* Patricia Acorda: */
+nav {
+    height: 10%;
+}
+
+.topBanner.pa {
+    height: 40%;
+}
+.fn.pa {
+    font-family: 'Secular One', sans-serif;
+    font-size: 50px;
+    letter-spacing: 5px;
+    text-align: center;
+    margin-bottom: 0;
+}
+.intro.pa {
+    font-family: 'Secular One', sans-serif;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 0;
+}
+
+.middleBanner {
+    height: 40%;
+}
+h2.pa {
+    margin-bottom: 0;
+}
+.eduList, .workList {
+    margin-top: 0;
+}
+
+.footer {
+    height: 10%;
+}
