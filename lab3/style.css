@@ -176,7 +176,7 @@ background: #555;
     background-image: url("photos/patriciaBackground.png");
     background-size: cover;
 }
-
+/* general elements: */
 #acordpPage h2 {
     color: var(--dark-color2-pa);
     margin: 0 0 40px 0;
