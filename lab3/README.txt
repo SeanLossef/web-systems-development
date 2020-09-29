@@ -22,3 +22,6 @@ for the address, email, and any other contact information makes it easier for hu
 classes allow machines to parse through the information and find what it's looking for. This is useful if the information was needed elsewhere,
 the machine can separate and reformat if necessary. An example of this being used is search engines, as it allows them to provide more information
 to people during a search.
+
+Charles Villagran:
+It is an efficient wasy to organize information. having a consistent format leads to a set way to read and recieve information. Makes it easier and nicer to the eye.
