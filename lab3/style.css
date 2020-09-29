@@ -45,6 +45,12 @@ ul {
 a {
     text-decoration: none;
 }
+.hidden {
+    display: none;
+}
+p.bold {
+    font-weight: 600;
+}
 
 
 /*** HOME PAGE: ***/
@@ -170,7 +176,7 @@ background: #555;
     background-image: url("photos/patriciaBackground.png");
     background-size: cover;
 }
-
+/* general elements: */
 #acordpPage h2 {
     color: var(--dark-color2-pa);
     margin: 0 0 40px 0;
@@ -182,9 +188,6 @@ background: #555;
 }
 #acordpPage li {
     margin: 0 0 30px 0;
-}
-#acordpPage p.bold {
-    font-weight: 600;
 }
 #acordpPage p {
     margin: 10px 0;
@@ -275,3 +278,65 @@ background: #555;
 }
 
 
+/* Sean Lossef: */
+#losses {
+    color: var(--dark-color-pa);
+    background-image: url("photos/lossesBackground.jpg");
+    background-size: cover;
+    font-family: 'Secular One', sans-serif;
+}
+#losses nav {
+    display: block;
+    left: 0;
+    top: 0;
+    right: 0;
+    position: fixed;
+    background: #293138d1;
+}
+#losses nav ul {
+    display: block;
+    list-style: none;
+    text-align: center;
+}
+#losses nav ul li {
+    display: inline-block;
+}
+#losses nav ul li a {
+    display: inline-block;
+    padding: 20px 30px;
+    color: #ef5162;
+    font-size: 18px;
+}
+#losses nav ul li a:hover {
+    color: #eb283c;
+}
+#losses .content {
+    display: block;
+    margin-top: 80px;
+    max-width: 650px;
+    margin: auto;
+    padding: 80px 20px 20px;
+    background: #f27884eb;
+}
+#losses .vcard {
+    text-align: center;
+}
+#losses img {
+    margin-top: 20px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px #00000066;
+    height: 200px;
+    width: 200px;
+}
+#losses .education li {
+    margin-bottom: 30px;
+}
+#losses .education li p {
+    margin: 5px 0;
+}
+#losses .experience li {
+    margin-bottom: 30px;
+}
+#losses .experience li p {
+    margin: 5px 0;
+}
