@@ -1,346 +1,346 @@
 /*** FONT IMPORTS: ***/
-@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Secular+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;600&display=swap");
 
 /*** GENERAL ELEMENTS: ***/
 :root {
-    --dark-color-main: #172A3A;
-    --pop-color1: #db5461;
+  --dark-color-main: #172a3a;
+  --pop-color1: #db5461;
 
-    --dark-color-pa: #262A2C;
-    --med-color-pa: #3D5B66;
-    --light-color-pa: #80A5B3;
-    --dark-color2-pa: #9e4842;
-    --med-color2-pa: #CC8B86;
-    --light-color2-pa: #F9EAE1;
+  --dark-color-pa: #262a2c;
+  --med-color-pa: #3d5b66;
+  --light-color-pa: #80a5b3;
+  --dark-color2-pa: #9e4842;
+  --med-color2-pa: #cc8b86;
+  --light-color2-pa: #f9eae1;
 }
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 html {
-    scroll-behavior: smooth;
-    min-height: 100%;
+  scroll-behavior: smooth;
+  min-height: 100%;
 }
 body {
-    margin: 0 auto;
-    background-color: var(--light-color-main);
+  margin: 0 auto;
+  background-color: var(--light-color-main);
 }
 
 h1 {
-    font-family: 'Secular One', sans-serif;
+  font-family: "Secular One", sans-serif;
 }
-h2, h3, h4 {
-    font-family: 'Ubuntu', sans-serif;
+h2,
+h3,
+h4 {
+  font-family: "Ubuntu", sans-serif;
 }
 p {
-    font-family: 'Work Sans', sans-serif;
+  font-family: "Work Sans", sans-serif;
 }
 /* removes the extra padding & bullets for all unordered lists */
 ul {
-    list-style-type: none;
-    padding-left: 0;
-    margin: 0;
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
 }
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 .hidden {
-    display: none;
+  display: none;
 }
 p.bold {
-    font-weight: 600;
+  font-weight: 600;
 }
-
 
 /*** HOME PAGE: ***/
 #homePage {
-    color: var(--dark-color-main);
-    background-image: url("photos/homeBackground.png");
-    background-size: cover;
+  color: var(--dark-color-main);
+  background-image: url("photos/homeBackground.png");
+  background-size: cover;
 }
 #homePage .topBanner {
-    text-align: center;
-    height: 20%;
-    margin: 20px 0;
+  text-align: center;
+  height: 20%;
+  margin: 20px 0;
 }
 #homePage h1 {
-    font-size: 60px;
-    letter-spacing: 15px;
-    margin-bottom: 0;
+  font-size: 60px;
+  letter-spacing: 15px;
+  margin-bottom: 0;
 }
 #homePage h3 {
-    font-size: 25px;
+  font-size: 25px;
 }
 #homePage h2 {
-    font-family: "Work Sans", sans-serif;
-    margin-top: 0;
+  font-family: "Work Sans", sans-serif;
+  margin-top: 0;
 }
 #homePage h4 {
-    font-size: 15px;
-    display: block;
-    margin: 0 0 10px 0;
+  font-size: 15px;
+  display: block;
+  margin: 0 0 10px 0;
 }
 #homePage p {
-    font-size: 18px;
-    margin-bottom: 30px;
+  font-size: 18px;
+  margin-bottom: 30px;
 }
 /* middleBanner: */
 #homePage .middleBanner {
-    text-align: center;
+  text-align: center;
 }
-#teamSection, #projSection {
-    width: 35%;
-    margin-top: 40px;
-    background: rgba(235, 235, 235, 0.7);
-    padding: 15px;
-    border-radius: 15px;
-    margin-bottom: 20px;
+#teamSection,
+#projSection {
+  width: 35%;
+  margin-top: 40px;
+  background: rgba(235, 235, 235, 0.7);
+  padding: 15px;
+  border-radius: 15px;
+  margin-bottom: 20px;
 }
 #teamSection {
-    float: left;
-    margin-left: 12%;
+  float: left;
+  margin-left: 12%;
 }
 #projSection {
-    float: right;
-    margin-right: 12%;
+  float: right;
+  margin-right: 12%;
 }
 /* #teamSection: */
 .teamNames a {
-    font-family: 'Ubuntu', sans-serif;
-    color: var(--dark-color-main);
-    display: inline-block;
-    width: 140px;
-    margin: 10px 5%;
+  font-family: "Ubuntu", sans-serif;
+  color: var(--dark-color-main);
+  display: inline-block;
+  width: 140px;
+  margin: 10px 5%;
 }
 .teamNames a:hover {
-    color: var(--pop-color1);
-    animation-duration: 0.5s;
+  color: var(--pop-color1);
+  animation-duration: 0.5s;
 }
-.teamPhotos, .teamNames{
-    display: block;
+.teamPhotos,
+.teamNames {
+  display: block;
 }
 #homePage img {
-    object-fit: cover;
+  object-fit: cover;
 }
-#homePage img.portrait{
-    width: 140px;
-    height: 140px;
-    border-radius: 10px;
-    margin: 10px 5%;
+#homePage img.portrait {
+  width: 140px;
+  height: 140px;
+  border-radius: 10px;
+  margin: 10px 5%;
 }
 #homePage .spacer {
-    margin-bottom: 30px;
-    display: block;
+  margin-bottom: 30px;
+  display: block;
 }
 /* #projSection: */
 #homePage img.project {
-    float: right;
-    width: 38%;
+  float: right;
+  width: 38%;
 }
 #homePage li p {
-    font-size: 14px;
-    float: left;
-    width: 60%;
-    margin: 0;
-    padding: 0 5px 0 0;
+  font-size: 14px;
+  float: left;
+  width: 60%;
+  margin: 0;
+  padding: 0 5px 0 0;
 }
 #homePage .projectDesc {
-    display: block;
+  display: block;
 }
 #homePage li {
-    overflow: auto;
-    margin-bottom: 20px;
+  overflow: auto;
+  margin-bottom: 20px;
 }
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-    width: 10px;
+  width: 10px;
 }
 ::-webkit-scrollbar-track {
-background: #f1f1f1;
+  background: #f1f1f1;
 }
 ::-webkit-scrollbar-thumb {
-background: #888;
+  background: #888;
 }
 ::-webkit-scrollbar-thumb:hover {
-background: #555;
+  background: #555;
 }
-
-
-
 
 /*** INDIVIDUAL PAGES: ***/
 /* Patricia Acorda: */
 #acordpPage {
-    color: var(--dark-color-pa);
-    background-image: url("photos/patriciaBackground.png");
-    background-size: cover;
+  color: var(--dark-color-pa);
+  background-image: url("photos/patriciaBackground.png");
+  background-size: cover;
 }
 /* general elements: */
 #acordpPage h2 {
-    color: var(--dark-color2-pa);
-    margin: 0 0 40px 0;
+  color: var(--dark-color2-pa);
+  margin: 0 0 40px 0;
 }
 #acordpPage h4 {
-    font-size: 18px;
-    color: var(--med-color-pa);
-    margin: 0;
+  font-size: 18px;
+  color: var(--med-color-pa);
+  margin: 0;
 }
 #acordpPage li {
-    margin: 0 0 30px 0;
+  margin: 0 0 30px 0;
 }
 #acordpPage p {
-    margin: 10px 0;
+  margin: 10px 0;
 }
 #acordpPage a {
-    font-family: 'Ubuntu', sans-serif;
-    color: var(--dark-color-pa);
-    display: inline-block;
+  font-family: "Ubuntu", sans-serif;
+  color: var(--dark-color-pa);
+  display: inline-block;
 }
 #acordpPage img {
-    height: 250px;
-    border-radius: 15px;
+  height: 250px;
+  border-radius: 15px;
 }
 #acordpPage .vcard {
-    font-family: 'Ubuntu', sans-serif;
-    color: var(--dark-color-pa);
+  font-family: "Ubuntu", sans-serif;
+  color: var(--dark-color-pa);
 }
 #acordpPage .email {
-    color: var(--med-color-pa);
+  color: var(--med-color-pa);
 }
 #acordpPage .email:hover {
-    color: var(--dark-color2-pa);
+  color: var(--dark-color2-pa);
 }
 /* #leftBanner: */
 #acordpPage #leftBanner {
-    height: 100vh;
-    text-align: left;
-    width: 40%;
-    float: left;
-    padding: 12% 8%;
-    background: rgba(128, 165, 179, 0.2);
-    position: fixed;
+  height: 100vh;
+  text-align: left;
+  width: 40%;
+  float: left;
+  padding: 12% 8%;
+  background: rgba(128, 165, 179, 0.2);
+  position: fixed;
 }
 #acordpPage .fn {
-    font-family: 'Secular One', sans-serif;
-    font-size: 50px;
-    letter-spacing: 5px;
-    margin-bottom: 0;
+  font-family: "Secular One", sans-serif;
+  font-size: 50px;
+  letter-spacing: 5px;
+  margin-bottom: 0;
 }
 #acordpPage .intro {
-    font-family: 'Secular One', sans-serif;
-    font-size: 20px;
-    margin-top: 0;
+  font-family: "Secular One", sans-serif;
+  font-size: 20px;
+  margin-top: 0;
 }
 #acordpPage .footer {
-    margin-top: 150px;
+  margin-top: 150px;
 }
 /* nav: */
 #acordpPage nav {
-    right: 0;
-    width: 60%;
-    background: rgba(204, 139, 134, 0.8);
-    color: var(--dark-color2-pa);
-    height: 50px;
-    padding: 1%;
-    position: fixed;
+  right: 0;
+  width: 60%;
+  background: rgba(204, 139, 134, 0.8);
+  color: var(--dark-color2-pa);
+  height: 50px;
+  padding: 1%;
+  position: fixed;
 }
 #acordpPage nav a {
-    color: var(--dark-color2-pa);
-    font-size: 18px;
-    display: inline-block;
-    text-align: center;
-    width: 160px;
-    border-radius: 10px;
-    height: 100%;
-    margin: 0 2%;
+  color: var(--dark-color2-pa);
+  font-size: 18px;
+  display: inline-block;
+  text-align: center;
+  width: 160px;
+  border-radius: 10px;
+  height: 100%;
+  margin: 0 2%;
 }
 #acordpPage nav a:hover {
-    color: var(--light-color2-pa) !important;
-    animation-duration: 0.5s;
+  color: var(--light-color2-pa) !important;
+  animation-duration: 0.5s;
 }
 /* sub-sections: */
 #acordpPage #aboutMe {
-    float: right;
-    width: 60%;
-    height: 90%;
-    padding: 10% 5% 5% 5%;
+  float: right;
+  width: 60%;
+  height: 90%;
+  padding: 10% 5% 5% 5%;
 }
 #acordpPage .subSections {
-    color: var(--med-color-pa);
+  color: var(--med-color-pa);
 }
-#acordpPage div.Education, #acordpPage div.WorkExperience, #acordpPage div.Skills {
-    display: none;
-    float: right;
-    width: 60%;
-    height: 90%;
-    padding: 10% 5% 5% 5%;
+#acordpPage div.Education,
+#acordpPage div.WorkExperience,
+#acordpPage div.Skills {
+  display: none;
+  float: right;
+  width: 60%;
+  height: 90%;
+  padding: 10% 5% 5% 5%;
 }
-
 
 /* Sean Lossef: */
 #losses {
-    color: var(--dark-color-pa);
-    background-image: url("photos/lossesBackground.jpg");
-    background-size: cover;
-    font-family: 'Secular One', sans-serif;
+  color: var(--dark-color-pa);
+  background-image: url("photos/lossesBackground.jpg");
+  background-size: cover;
+  font-family: "Secular One", sans-serif;
 }
 #losses nav {
-    display: block;
-    left: 0;
-    top: 0;
-    right: 0;
-    position: fixed;
-    background: #293138d1;
+  display: block;
+  left: 0;
+  top: 0;
+  right: 0;
+  position: fixed;
+  background: #293138d1;
 }
 #losses nav ul {
-    display: block;
-    list-style: none;
-    text-align: center;
+  display: block;
+  list-style: none;
+  text-align: center;
 }
 #losses nav ul li {
-    display: inline-block;
+  display: inline-block;
 }
 #losses nav ul li a {
-    display: inline-block;
-    padding: 20px 30px;
-    color: #ef5162;
-    font-size: 18px;
+  display: inline-block;
+  padding: 20px 30px;
+  color: #ef5162;
+  font-size: 18px;
 }
 #losses nav ul li a:hover {
-    color: #eb283c;
+  color: #eb283c;
 }
 #losses .content {
-    display: block;
-    margin-top: 80px;
-    max-width: 650px;
-    margin: auto;
-    padding: 80px 20px 20px;
-    background: #f27884eb;
+  display: block;
+  margin-top: 80px;
+  max-width: 650px;
+  margin: auto;
+  padding: 80px 20px 20px;
+  background: #f27884eb;
 }
 #losses .vcard {
-    text-align: center;
+  text-align: center;
 }
 #losses img {
-    margin-top: 20px;
-    border-radius: 50%;
-    box-shadow: 2px 2px 5px #00000066;
-    height: 200px;
-    width: 200px;
+  margin-top: 20px;
+  border-radius: 50%;
+  box-shadow: 2px 2px 5px #00000066;
+  height: 200px;
+  width: 200px;
 }
 #losses .education li {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 #losses .education li p {
-    margin: 5px 0;
+  margin: 5px 0;
 }
 #losses .experience li {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 #losses .experience li p {
-    margin: 5px 0;
+  margin: 5px 0;
 }
-
 
 /* Colleen Corrigan */
 #corricPage body {
@@ -348,7 +348,8 @@ background: #555;
   background-color: #e6f2ff;
 }
 
-#corricPage h1, h3 {
+#corricPage h1,
+h3 {
   font-family: Verdana;
   color: #404040;
 }
@@ -359,7 +360,8 @@ background: #555;
   padding-bottom: 0;
 }
 
-#corricPage h4, h5 {
+#corricPage h4,
+h5 {
   font-family: Verdana;
   color: #404040;
   margin: 0;
@@ -464,3 +466,18 @@ background: #555;
 }
 
 /* Charles Villagran */
+#charl {
+  color: var(--dark-color-pa);
+  background-image: url("photos/villac2Background.jpg");
+  background-size: cover;
+  font-family: "Secular One", sans-serif;
+}
+
+#charl nav {
+  display: block;
+  left: 0;
+  top: 0;
+  right: 0;
+  position: fixed;
+  background: #293138d1;
+}
