@@ -470,7 +470,7 @@ h5 {
   color: var(--dark-color-pa);
   background-image: url("photos/villac2Background.jpg");
   background-size: cover;
-  font-family: "Secular One", sans-serif;
+  font-family: "Minion Pro", serif;
 }
 
 #charl nav {
@@ -481,3 +481,53 @@ h5 {
   position: fixed;
   background: #293138d1;
 }
+#charl nav ul {
+  display: block;
+  list-style: none;
+  text-align: center;
+}
+#charl nav ul li {
+  display: inline-block;
+}
+#charl nav ul li a {
+  display: inline-block;
+  padding: 15px 30px;
+  color: #7ceea8;
+  font-size: 20px;
+}
+#charl nav ul li a:hover {
+  color: #637e67;
+}
+#charl .content {
+  display: block;
+  margin-top: 80px;
+  max-width: 650px;
+  margin: auto;
+  padding: 80px 20px 20px;
+  background: #637e67;
+}
+#charl .content {
+    text-align: center;
+}
+#charl img {
+    margin-top: 20px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px #00000066;
+    height: 200px;
+    width: 220px;
+  }
+  #charl .education li {
+    margin-bottom: 30px;
+  }
+  #charl .education li p {
+    margin: 2px 0;
+  }
+  #charl .WorkExperience li {
+    margin-bottom: 30px;
+  }
+  #charl .WorkExperience li p {
+    margin: 2px 0;
+  }
+  #charl .WorkExperience li .p1 {
+    margin: 1px 0;
+  }
