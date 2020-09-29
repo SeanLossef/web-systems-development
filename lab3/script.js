@@ -21,6 +21,14 @@ $(document).ready(function() {
         }
     });
 
+
+    // toggles display of subsections on losses.html
+    $("#losses nav a").click (function() {
+        var targetId = $(this).attr("class");
+        $('.content > div').addClass('hidden');
+        $('#'+targetId).removeClass('hidden');
+    });
+
     
 
 });
