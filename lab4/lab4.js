@@ -38,3 +38,26 @@ function part2() {
     let elem = document.getElementsByTagName('html')[0];
     part2Recurse(elem);
 }
+
+// Part 3
+window.addEventListener('load', (event) => {
+    var item = document.getElementsByTagName("body")[0].lastElementChild;
+    var quote = item.cloneNode(true);
+    quote.innerHTML = "<h2>OUR FAVORITE QUOTE!!!</h2><p>\"Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma - which is living with the results of other people's thinking.\" - Steve Jobs</p>";
+    document.getElementsByTagName("body")[0].appendChild(quote);
+
+    var divs = document.getElementsByTagName("div");
+    for (var i = 0; i < divs.length; i++) {
+        divs[i].addEventListener('mouseover', function() {
+            this.style.backgroundColor = '#99f';
+            this.style.marginLeft = '10px';
+        });
+        divs[i].addEventListener('mouseout', function() {
+            this.style.backgroundColor = '';
+            this.style.marginLeft = '0';
+        });
+    }
+
+    part1a();
+    //part2();
+});
