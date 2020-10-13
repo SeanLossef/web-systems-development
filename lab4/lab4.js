@@ -59,5 +59,5 @@ window.addEventListener('load', (event) => {
     }
 
     part1a();
-    //part2();
+    part2();
 });
