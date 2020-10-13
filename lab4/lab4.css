@@ -1,17 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+
+:root {
+  --white: #EDFAF4;
+  --highlight: #FE5F55;
+  --link: #B70D01;
+
+  --main-dark: #4F6367;
+  --main-medium: #7A9E9F;
+  --main-light: #B8D8D8;
+}
 body {
-    background: #ffc7ee;
+    background:var(--white);
+    color: var(--main-dark);
+    font-family: 'Ubuntu', sans-serif;
 }
 
 h1, h2, p, pre {
   font-family: 'Anton', sans-serif;
-  color: #b82168;
-  text-align: center;
+  color: var(--highlight);
 }
-pre {
-    font-family: serif;
-    font-size: large;
+a {
+  color: var(--link)
 }
-.pre {
-    font-family: serif;
-    font-size: large;
+a:hover {
+  color: var(--highlight);
+  transition: 0.2s;
+}
+.quote {
+  border: 1px solid #999;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 2px 2px 4px #33333399;
 }
