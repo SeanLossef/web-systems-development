@@ -19,6 +19,45 @@ function part1a() {
     document.getElementById("info").innerHTML = str;
 }
 
+// Part 1b
+function part1b() {
+    var i;
+    var str = '';
+    var prefix = '';
+    var classNameArr = ['html', 'head', 'title', 'link', 'script', 
+        'body', 'h1', 'pre', 'part1b',
+        'q1', 'q2', 'q3', 'q4'];
+    for (i = 0; i < classNameArr.length; i++) {
+        cName = classNameArr[i];
+        if (cName == "head" || cName == "body") {
+            prefix = '-';
+            str += prefix + document.getElementsByClassName(cName)[0].tagName + '\n';
+        }
+        else if ((i >= 6 && i <= 8) || (i >= 1 && i <= 3)) {
+            prefix = '--';
+            str += prefix + document.getElementsByClassName(cName)[0].tagName + '\n';
+        }
+        else if (i >= 9 && i <= 12) {
+            prefix = '--';
+            str += prefix + document.getElementsByClassName(cName)[0].tagName + '\n';
+            let children = document.getElementsByClassName(cName)[0].childNodes;
+            if (children) {
+                prefix = '---';
+                for (var j = 0; j < children.length; j++) {
+                    if (children[j].nodeName != '#text')
+                        str += prefix + children[j].tagName + '\n';
+                }
+            }
+        }
+        else {
+            str += prefix + document.getElementsByClassName(cName)[0].tagName + '\n';
+        }
+    }
+    console.log(str);
+    document.getElementById("part1b").innerHTML = str;
+    return;
+}
+
 // Part 2
 function part2Recurse(elem) {
     let children = elem.childNodes;
@@ -49,7 +88,7 @@ window.addEventListener('load', (event) => {
     var divs = document.getElementsByTagName("div");
     for (var i = 0; i < divs.length; i++) {
         divs[i].addEventListener('mouseover', function() {
-            this.style.backgroundColor = '#99f';
+            this.style.backgroundColor = 'var(--main-light)';
             this.style.marginLeft = '10px';
         });
         divs[i].addEventListener('mouseout', function() {
@@ -59,5 +98,6 @@ window.addEventListener('load', (event) => {
     }
 
     part1a();
+    part1b();
     part2();
 });

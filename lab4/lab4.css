@@ -1,7 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+
+:root {
+  --white: #EDFAF4;
+  --highlight: #FE5F55;
+  --link: #B70D01;
+
+  --main-dark: #4F6367;
+  --main-medium: #7A9E9F;
+  --main-light: #B8D8D8;
+}
 body {
-    background: #f9f9f9;
+    background:var(--white);
+    color: var(--main-dark);
+    font-family: 'Ubuntu', sans-serif;
 }
 
 h1, h2 {
   font-family: 'Anton', sans-serif;
+  color: var(--highlight);
+}
+a {
+  color: var(--link)
+}
+a:hover {
+  color: var(--highlight);
+  transition: 0.2s;
 }
