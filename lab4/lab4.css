@@ -27,3 +27,10 @@ a:hover {
   color: var(--highlight);
   transition: 0.2s;
 }
+.quote {
+  border: 1px solid #999;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 2px 2px 4px #33333399;
+}

@@ -27,3 +27,4 @@ Colleen - I changed the font style for both the h1 and h2 headings using an embe
 from Google fonts.
 Patricia - added a basic color scheme using root variables & changed the non-header fonts 
 using Google imbedded fonts. Also added a hover color change for links with a transition timer.
+Sean - styled quote blocks, adding borders, curved corners, and a box shadow.
