@@ -1,6 +1,10 @@
 LAB 4
 
 Part 1a:
+For this part, we wrote a recursive function that can iterate through every element
+in the DOM. When the function is called, it will call the function again for each child
+element, while printing that element. That results in the DOM being printed in breadth
+first order.
 
 Part 1b:
 Between parts a & b of part 1, part b is more of a hardcoded solution that 
@@ -9,6 +13,8 @@ values of 1a & 1b should not be different, since they are written to do the same
 The only difference is that 1a is a much more concise and elegant solution.
 
 Part 2:
+The event appears to first be called in the leaf element, and then in the parents, recursively.
+Every element in the tree calls an alert.
 
 Part 3:
 An .addEventListener() method was added that waited until the page was loaded before
