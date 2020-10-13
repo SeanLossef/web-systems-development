@@ -2,7 +2,7 @@
 
 
 :root {
-  --white: #EDFAF4;
+  --white: #fc8dca;
   --highlight: #FE5F55;
   --link: #B70D01;
 
@@ -11,14 +11,18 @@
   --main-light: #B8D8D8;
 }
 body {
-    background:var(--white);
-    color: var(--main-dark);
+    background-color;: #fc8dca
     font-family: 'Ubuntu', sans-serif;
 }
 
 h1, h2, p, pre {
   font-family: 'Anton', sans-serif;
-  color: var(--highlight);
+  color: #b82168;
+  text-align: center
+}
+pre {
+  font-family: serif;
+  font-size: large;
 }
 a {
   color: var(--link)
