@@ -1,7 +1,17 @@
 body {
-    background: #f9f9f9;
+    background: #ffc7ee;
 }
 
-h1, h2 {
+h1, h2, p, pre {
   font-family: 'Anton', sans-serif;
+  color: #b82168;
+  text-align: center;
+}
+pre {
+    font-family: serif;
+    font-size: large;
+}
+.pre {
+    font-family: serif;
+    font-size: large;
 }
