@@ -1,0 +1,201 @@
+<!-- Sean Lossef - losses -->
+
+<html>
+    <head>
+        <link rel="stylesheet" href="./losses.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="./losses.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Hey, everyone!</h1>
+            <div class="split">
+                <!-- Nav -->
+                <div class="left">
+                    <ul>
+                        <li class="navbutton" data-target="lab1">Lab 1</li>
+                        <li class="navbutton" data-target="lab2">Lab 2</li>
+                        <li class="navbutton" data-target="lab3">Lab 3</li>
+                        <li class="export">Export</li>
+                    </ul>
+                </div>
+
+                <!-- Right side -->
+                <div class="right active">
+                    Click a lab to view more info
+                </div>
+                
+                <!-- Lab 1 -->
+                <div class="right" id="lab1">
+                    <h2>Lab 1</h2>
+                    <h3>Part 0: Before asking questions</h3>
+                    <p>This is a class about web development.</p>
+                    <p>Part of web development is participating in a community of people who are able and willing to help. As most of you likely already know, searching with Google and sites like StackExchange can help answer many of your questions.</p>
+                    <p>To participate in this community and to get the best results, you need to interact with it in a contributory and respectful manner.</p>
+                    <p>While I am not much of a fan of esr, this page does contain good, if blunt, advice for how to ask questions. Read that section before continuing on. Read the rest of the page some time after class today but before you come back to class next Friday.</p>
+                    <p>In short, just as office hours are for those who have attended lecture, help during lab will go to those who have put in the effort to help themselves first. No one learns anything by being spoon-fed solutions. As you will quickly learn, I am the kind of person who, if you ask a yes or no question, will do everything in my power to not give you a yes or no answer. I will, however, give you hints on where you should consider looking and how you should be thinking about your approach to the problem. If you receive a response of "check the documentation" or "Google the error message," the TA and I are not blowing you off: we're trying to teach you how to troubleshoot a problem, which will be much more beneficial to you in the long run (and you’re likely to get a better grade on whatever assignment you’re working on).</p>
+                    <p>Also remember that you are working in a group. Ask your team members for help and inspiration. But don’t spoon feed each other answers. Build up your collective knowledge as you work through the challenges. Nothing reinforces your learning better than teaching others.</p>
+                    <h3>Part 1a: Install your *AMP stack</h3>
+                    <p>This lab will be the one exception to one submission per group. It’s important that you all have your own individual AMP stack running on your machines. So everyone should submit this week.</p>
+                    <p>An AMP stack is typically installed in one of two ways: via a prepackaged Apache distribution (usually with a standalone installer of some sort), or via your operating system's package management system. You may also install from source, though in practice this is usually reserved for situations where no other method will suffice... if you choose to do so, best of luck. Choose the method that suits your needs and level of experience. The minimum requirements are as follows, regardless of OS. As always, the latest and greatest is best:</p>
+                    <ul>
+                        <li>Apache 2.4+</li>
+                        <li>MariaDB 10.4+</li>
+                        <li>PHP 7.2+</li>
+                    </ul>
+                    <p><b>Recommended for *BSD or Linux: </b>Get the software from your package manager (pkg_add, pkg, apt, yum, etc.)</p>
+                    <p><b>Recommended for Mac: </b>Homebrew or XAMPP</p>
+                    <p><b>Recommended for Windows: </b>XAMPP</p>
+                    <p>Additionally, you could choose to run a virtual machine running Windows with XAMPP inside. This would be an OS-independent solution. Historically, this has been the ideal solution for Mac people.</p>
+                    <h3>Part 1b: Install phpMyAdmin</h3>
+                    <p>phpMyAdmin is a Web-based database administration tool, available at https://www.phpmyadmin.net/downloads/. It is already included in most Apache distributions, as well as via most package managers (e.g., on OpenBSD: pkg_add phpMyAdmin).</p>
+                    <p>If phpMyAdmin is not already installed, simply follow the instructions at https://docs.phpmyadmin.net/en/latest/setup.html#quick-install</p>
+                    <p><b>To receive credit for Part 1:</b> Demonstrate that Apache, MySQL and PHP are working by installing phpMyAdmin and accessing it via localhost (usually http://localhost/phpmyadmin). If you can access phpMyAdmin using the default mysql username “root” with no password, congratulations! Your server is configured correctly. Take a screenshot of that page and save it somewhere for now.</p>
+                    <h3>Part 2: Name-based virtual hosts</h3>
+                    <p>Name-based virtual hosts (along with multiple databases) are often used by Web developers to work on several projects simultaneously, without having to constantly change the directory structure or work on multiple servers.
+                    <p>This is accomplished by using name-based virtual hosts to assign arbitrary (non-conflicting) domain names to each project, and using the hosts file to allow requests for those same names to resolve back to 127.0.0.1 (or ::1 for IPv6) (just like localhost). Because the required Host header sent with each request will show the domain name requested, Apache can still distinguish between virtual hosts to determine which directory structure and other configuration settings to use.</p>
+                    <p>We are going to set up a few virtual servers for this class.</p>
+                    <p>First, create a new directory on your filesystem called websys, and a subdirectory called lab1. Save the following as index.php within that directory:</p>
+                    <p>This simply prints a page detailing PHP's configuration on a server. Now, find your server's httpd.conf file, and create a new virtual host entry at the bottom of the file. Yes, I’m aware I’m not quite telling you how to do that.</p>
+                    <p>Virtual hosts are defined in containers, which specify the IP and port. Add a container specifying a server name of lab1.websys. The DocumentRoot should be the full path to the lab1 directory you created earlier (with no trailing slash).</p>
+                    <p>Finally, add an entry in your hosts file mapping your new virtual host to 127.0.0.1.</p>
+                    <p>Note that httpd.conf changes are only processed when the server first starts. Restart Apache for the changes to take effect.</p>
+                    <p>After visiting http://lab1.websys, you should see a printout of PHP's configuration. If so, congratulations! Name-based virtual hosting has been configured correctly for that domain. Export this page to a pdf file.</p>
+                    <p>To keep projects organized in this course, add a virtual host for websys which will allow for the file directory to be shown if an index.php or .html does not exist. Then repeat the process by adding new subdirectories under websys/ and changing both the ServerName and DocumentRoot directives of your respective containers. Remember that we will have 10 labs this semester.</p>
+                    <h3>Part 3: A GitHub repository for your semester project</h3>
+                    <p>We are going to use GitHub to host our semester projects. That way, they are in an easy to find place, you can use all the industry standard tools that GitHub provides (issues, pull requests, kanban-like projects), and I can track your progress throughout the semester. Nominate someone to own the repository and create a repository. The repository must be named either your group name or your application name. Invite all your other group members to be collaborators. Invite me (ibara) and the TA (priyanshu-11) to be collaborators.</p>
+                    <p>By the way, GitHub offers extra features to students for free. You should take advantage of that.</p>
+                    <p>To receive credit for the lab: copy your screenshots, PDFs, config files, and your hosts file into your lab1 directory. Add a readme file which explains what you did and how you arrived at these files, and zip the entire websys directory with the convention of RCSID-websys-lab#.zip, where # is your lab number, in this case 1. Upload the zip file to LMS. Invite me and the TA to be collaborators for your GitHub repository.</p>
+                    <p>This lab is due before you come to class on Tuesday, September 15.</p>
+                </div>
+
+                <!-- Lab 2 -->
+                <div class="right" id="lab2">
+                    <h2>Lab 2</h2>
+                    <h3>Part (-1): Before you begin REMEMBER:</h3>
+                    <ol>
+                        <li>You know more than you think you do. Everything you need to complete the lab can be found either in your head, in your notes, in the slides (may also include Friday’s slides, already available on </li>LMS), or a very quick Google search away.
+                        <li>BREAK EVERYTHING. Break everything so badly you have no idea how to fix it. Be bold and boisterous and loud in your mistakes. More so than when you’re 100% sure of something. After you’ve broken </li>everything and experimented as much as you can, then go ahead and do the lab for real.
+                        <li>Don’t overthink the directions. But do make sure you follow the directions as asked. Part of your grade for the lab is based on whether or not what you submit matches the specifications.</li>
+                        <li>Don’t forget about office hours! Both mine and the TA’s.</li>
+                        <li>You are working in groups. One submission per group. That also means that you should be producing a respectable amount of work for the number of people in your group.</li>
+                        <li>Are you remembering to log into LMS every class to submit attendance?</li>
+                    </ol>
+                    <h3>Part 0: Setup</h3>
+                    <p>Create a new directory for Lab 2 if you have not done so already. It should be available at http://lab2.websys. Ensure that you have a text editor or other integrated development environment (IDE) ready. Which one you use doesn’t matter, so long as you are comfortable and efficient in its use (or are willing to invest the time to learn it). If you don’t know what text editor/IDE to use, Microsoft Visual Studio Code is popular (and free!).</p>
+                    <h3>Part 1: Semantic HTML</h3>
+                    <p>For this part of the lab, you will be marking up a playlist of your ten (10) favorite songs. Each entry must include the following information:</p>
+                    <p>* Track Name</p>
+                    <p>* Artist - with a link to the artist’s website</p>
+                    <p>* Album Name - with a link to its page (if any) on ​Allmusic.com (or other similar site)</p>
+                    <p>* Album Cover (Image)</p>
+                    <p>* Release Date</p>
+                    <p>* Genre(s) - list multiple if appropriate</p>
+                    <p>Think about the semantic correctness of the elements you’re using, keeping in mind that your document might not always be rendered by a browser (how would you communicate this information to a blind person using a screen reader?).</p>
+                    <p>To receive credit for Part 1:​ Name your HTML file ​groupname-lab2-part1.html and save it in your lab2 directory. Create a README file, and in it explain the reasoning for the markup you chose and explain how your HTML is semantically correct. Additionally, add a screenshot of your browser with the html page and save it as ​groupname-​lab2-part1.xxx (jpg, png, etc.) in your lab2 directory.</p>
+                    <p>Part 1: 3 files - HTML, Readme, and Screenshot (jpg, png, etc.)</p>
+                    <h3>Part 2: XML</h3>
+                    <p>Yes, I know we will focus on HTML for a lot of things, but you should have XML under your fingertips (who knows--you may want to use it in your projects or the future).</p>
+                    <p>Create a new file, ​groupname​-lab2-part2.xml, and mark up the same content that you did in Part1, this time in XML. Although you may choose whichever labels and attributes for your tags that make sense, take care to structure the document in a hierarchical, extensible way. Recall that XML may be valid, but must be well-formed.</p>
+                    <p>If you are having difficulty with this part (and want your XML to neatly display on your browser), please look up XSLT:</p>
+                    <p>https://www.w3schools.com/xml/xml_xslt.asp</p>
+                    <p>Make a new file called “style.xsl” and link to it by putting the following after the XML prologue:</p>
+                    <p>NOTE: You are not required to have your XML for this part display neatly in a browser (but you can use XSLT to do it). Hence why no screenshot is required here (but... see part 4). You can put all the usual HTML tags you need for this in your XSLT stylesheet, etc.</p>
+                    <p>To receive credit for Part 2:​ Place your XML file in your lab2 directory. In the Readme file, explain the reasoning for the markup you chose and be prepared to explain how your XML is semantically correct.</p>
+                    <p>Part 2: 1 file - XML</p>
+                    <h3>Part 3: HTML and CSS</h3>
+                    <p>Create a new file, ​groupname​-lab2-part3.css. Edit your HTML file to reference the CSS externally using the <link> tag in the <head> of your document and save this as ​groupname-lab2-part3.html. This is always the preferred way to add CSS to an HTML document, as it further separates the presentation from semantic markup and promotes the reuse of CSS between documents. Make sure that song title is in small-caps, the artist is in bold and in a 20 percent larger font, the album is italicized, the release date and genres are in a proportionally reduced font size, and that the genres appear as a list with dashes. The album cover should appear to the right of each listing, and the title of your favorite song should appear in green. There should be a border around your list as well as an entry centered at the bottom indicating the end of the list, in a smaller, italicised font. Make sure that you add a header for each column indicating the content for each. You may ​not​ use tables for part 3. You can of course make a copy of your HTML file in part 1 as the base for part 3, but do make sure you don’t overwrite the part 1 HTML file with the part 3 HTML file.</p>
+                    <p>To receive credit for Part 3:​ Place your HTML and CSS files in your lab2 directory. Using comments in your file(s), and in your Readme file, explain the logic for the markup you have chosen and make sure your markup is well documented. Additionally, add a screenshot of your browser with the html page and save it as ​groupname-​lab2-part3.xxx (jpg, png, etc.) in your lab2 directory.</p>
+                    <p>Part 3: 3 files - HTML, CSS, and Screenshot (jpg, png, etc.)</p>
+                    <h3>Part 4: XML and CSS</h3>
+                    <p>Turns out you can use CSS in your XML documents!</p>
+                    <p>According to the base specification, XML documents may also refer to CSS.</p>
+                    <p>After the XML prologue:</p>
+                    <p>Create a new file called ​groupname-lab2-part4.css, and modify your XML document to refer to this new stylesheet. Edit the stylesheet such that the information should be displayed with each item on a separate line. The Song title should be first and should be slightly smaller than the ArtistName which should also be in blue. The Album name should remain in italics. The hyperlink should work, and the image should be last, not be part of the hyperlink, and must be forced to be the same size as the other images. Finally, there should be at least one line separating each entry in your list. This time, in order to be able to display your image and hyperlink using the HTML tags, you will need to add the html namespace to your XML file by adding an attribute to the root_element tag--which is done by adding</p>
+                    <p>to your XML file after the stylesheet directive. Alternatively you can accomplish this without using the img element. However, you will need some other means of rendering the image on the page using CSS (hint: look into how backgrounds are displayed).</p>
+                    <p>Take note of what happens with the margins: one might assume that two elements vertically separated by opposing margins, the one with the greater value will apply, and the other will collapse to zero. This rendering behavior is known as “collapsing margins,” and is used to maintain vertical rhythm when elements are in the normal flow of the page. Elements outside of the normal page flow (those that are floated, positioned absolutely, etc.) will not have their margins collapsed.</p>
+                    <p>To receive credit for Part 4:​ Show that the appropriate changes were made using your CSS. Add the two ​groupname-​lab2-part4.css and xml files to your lab2 directory. Add a screenshot to the directory named ​groupname-​lab2-part4.xxx (jpg, png, etc) as well. As above add any comments to your Readme file.</p>
+                    <p>Part 4: 3 files - XML, CSS, and Screenshot (jpg, png, etc.)</p>
+                </div>
+
+                <!-- Lab 3 -->
+                <div class="right" id="lab3">
+                    <h2>Lab 3</h2>
+                    <p>By now, you have established your groups, come up with a team name, and have submitted a proposal for a serious project. It’s a good thing I know you though--it’s going to be really difficult to get clients without a web presence! Doubly ironic for us web developers. Let’s fix that.</p>
+                    <p>This lab will have you create a portfolio website for your group, which will include a portfolio site/page for each individual member of the group within.</p>
+                    <p>Online portfolios are often used to showcase the work of web professionals, not only to highlight their experience but also to demonstrate that experience in the document itself. Regardless of whether or not you intend to pursue a career in web development it never hurts to have an online résumé that you can link to. For this assignment, we will be creating that résumé which will demonstrate your proficiency with the skills you have learned in class so far, while highlighting your other talents and experiences.</p>
+                    <p>You are highly encouraged to seek out the online portfolios of other web professionals and teams for this lab. But don’t copy them directly. Inspiration only.</p>
+                    <h3>Part 1: Markup & CSS</h3>
+                    <p>You must create a landing page that highlights the work of your team. It is ok if you make up a list of previous works, awards won, etc. Be realistic though. You probably didn’t win that Nobel Prize...</p>
+                    <p>This landing page, named index.html (styled with style.css), should include at a minimum…</p>
+                    <ul>
+                        <li>Team name</li>
+                        <li>Team slogan</li>
+                        <li>List of at least 3 previous works (you can make this up)</li>
+                        <ul>
+                            <li>Include a description and one tiny mock-up for each previous work</li>
+                            <ul>
+                                <li>Or, even easier, if you still have your projects from Intro, take a screenshot of the main page and scale it down to a thumbnail and you’re done</li>
+                            </ul>
+                        </ul>
+                        <li>Photo of each group member</li>
+                        <li>Links to each individual member page</li>
+                    </ul>
+                    <p>Remember: this page should be free advertising for your team. Make it catchy. Make people want to hire your group.</p>
+                    <p>Each individual group member should create their own résumé page. While this page is for the lab, ideally you should be able to lift what you create from this lab and use it in your own personal website (you do have one of those, right?).</p>
+                    <p>Your individual résumé page, named rcsid.html (styled with the same style.css as the main page), should include…</p>
+                    <ul>
+                        <li>Full name</li>
+                        <li>Address</li>
+                        <li>Phone</li>
+                        <li>Email (with link)</li>
+                        <li>Photo of yourself (can be the same or different from the main page)</li>
+                        <li>Objective Statement/Intro</li>
+                        <li>Education (minimum 2 items, include secondary school)</li>
+                        <ul>
+                            <li>Institution (link to website if available)</li>
+                            <li>Degree program</li>
+                            <li>Dates</li>
+                            <li>Details/Accomplishments</li>
+                        </ul>
+                        <li>Work experience (minimum 3 items, ok to fabricate)</li>
+                        <ul>
+                            <li>Organization (link to website if available)</li>
+                            <li>Title</li>
+                            <li>Dates</li>
+                            <li>Details/Accomplishments</li>
+                        </ul>
+                        <li>Skills (minimum 8 items)</li>
+                    </ul>
+                    <p>If you do not have the given number of entries for a given item, you may (must) invent items to fill the difference for the purposes of this assignment.</p>
+                    <h3>Part 2: Microformats</h3>
+                    <p>Microformats provide a set of conventions for reusing existing HTML tags and attributes to embed additional semantic information into the document. The hCard microformat, for example, uses tags and attributes to provide additional metadata about individuals and organizations and their contact information (similar to a business card).</p>
+                    <p>To receive credit for this part of the assignment, research the hCard microformat as a group, and use it to mark up your contact information on each of your personal résumé pages.</p>
+                    <p><b>Other requirements for Parts 1 & 2:</b></p>
+                    <ul>
+                        <li>Ensure semantic correctness and good structure. Pick good tags! Don’t just use divs and spans.</li>
+                        <li>Must be presentable in the latest Chrome and Firefox</li>
+                        <li>Validate your HTML: https://validator.w3.org/</li>
+                        <li>Validate your CSS: https://jigsaw.w3.org/css-validator/</li>
+                    </ul>
+                    <p>Make sure your markup is semantically correct. This isn’t always as easy as it sounds! You’ll want to look up a reference (e.g., W3Schools.com), and search the Web for examples of how others mark up similar content. Avoid using divs and spans unless no other element makes intuitive sense, and be prepared to explain why you chose to use those divs and spans.</p>
+                    <p>Make good use of positioning. Have a look at how other websites (especially single-page résumés and portfolios) lay out their content. Use them for inspiration only, and be sure to reference them in your README.txt if you do! Citing your sources is always important.</p>
+                    <p>Pay attention to layout and design. You won’t be graded as Electronic Media, Arts, and Communication (EMAC) seniors as far as visual design is concerned, but you are still ITWS/CS students who genuinely care about making something look nice. It should be both readable and presentable.</p>
+                    <p>Format your markup and CSS consistently with respect to case, indentation, etc. Using two spaces for indentation between each nested level in HTML (and in front of each declaration in CSS) is generally standard. Good markup is self-documenting, though comments may (and should) be used to assist in organizing the source code.</p>
+                    <p>Be creative and experiment!</p>
+                    <h3>README file</h3>
+                    <p>In addition to the running work log that everyone contributes to, please answer the following questions in the README file:</p>
+                    <p>How is your markup semantically correct?</p>
+                    <p>Are there any non-semantic elements that you needed for styling purposes? If you used divs and spans, this is where you would account for them. Explain why you used divs and spans as opposed to something else.</p>
+                    <p>In your own words, how is the hCard information you added to your personal résumé page useful to both humans and machines trying to access your content? (This means that everyone must answer this question individually in the README file.)</p>
+                    <p>Please also remember to list the URLs of any websites you used for inspiration. Also include a list of any and all works referenced throughout the assignment, including tutorials, reference sheets, etc. Failure to cite all referenced works may result in a zero for the assignment and a two-letter drop in your final grade. When in doubt, email me or the TA.</p>
+                    <h3>Submissions</h3>
+                    <p>Put all your files into one directory named groupname-lab3, zip it up, nominate someone to submit it to LMS.</p>
+                    <h3>Extra credit: Web Fonts</h3>
+                    <p>Progressive enhancement is a design philosophy in which a basic experience is created that will function on all audience browsers, and steadily embellished upon using features available to more modern browsers. More specifically, the developer begins with content annotated with solid semantic markup as a base, applies CSS (and possibly JavaScript), and then adds to that base according to the capabilities of increasingly more modern user agents.</p>
+                    <p>For a possible, additional 5 points, use Web fonts and CSS to enhance the visual presentation of your document. In your README.txt, explain how your markup and stylesheet leverages the principles of progressive enhancement. For Web fonts, this means, at a minimum, choosing good fallback fonts. But it means a lot more than: it means you must craft an experience that degrades well. If you want to try out browsers that will force you to experience that degradation, check out (in order of least to most degradation) Netsurf (GUI), Dillo (GUI), links (GUI and terminal), and lynx (terminal only). Or consider installing a screen reader and see how it reads your site back to you! Tell us in the README.txt file which of these alternative browsers and/or screen readers you used, how your site originally looked in them, and how you changed your HTML and/or CSS to provide graceful degradation.</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

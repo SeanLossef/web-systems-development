@@ -1,0 +1,62 @@
+/* Sean Lossef - losses */
+
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  border: 0;
+  padding: 20px 0;
+}
+
+.container {
+  display: block;
+  position: relative;
+  width: 95vw;
+  border: 10px solid black;
+  margin: auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.split {
+  position: relative;
+  display: block;
+}
+
+.left {
+  width: 33%;
+  display: inline-block;
+  vertical-align: top;
+}
+.left ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.left ul li {
+  display: block;
+  padding: 10px 20px;
+  font-weight: bold;
+  background: coral;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+.left ul li:hover {
+  background: #e06e44;
+}
+
+.right {
+  width: 66%;
+  display: none;
+  vertical-align: top;
+  padding: 0 20px;
+}
+.right.active {
+  display: inline-block;
+}
