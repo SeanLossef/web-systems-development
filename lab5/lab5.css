@@ -1,8 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 
 :root {
   --white: #F8EBFF;
   --highlight: #239580;
+  --blue: #C7C9D1;
 
   --main-dark: #0D0A0B;
   --main-medium: #433248;
@@ -16,15 +18,16 @@ html {
   min-height: 100%;
 }
 body {
-    background-color:var(--white);
-    font-family: 'Ubuntu', sans-serif;
-    margin: 0;
+  background-color:var(--white);
+  font-family: 'Teko', sans-serif;
+  letter-spacing: 1px;
+  margin: 0;
 }
 
-h1, h2, p {
-  font-family: 'Anton', sans-serif;
-  color: var(--main-dark);
-  text-align: center
+h1, h2 {
+  font-family: 'Staatliches', cursive;
+  color: var(--main-medium);
+  text-align: center;
 }
 a {
   color: var(--link);
@@ -33,6 +36,19 @@ a:hover {
   color: var(--highlight);
   transition: 0.2s;
 }
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+/*** Font Sizes: ***/
+h1 {
+  font-size: 30px;  
+}
+h2 {
+  font-size: 20px;
+}
 
 /*** Information Bar: ***/
 #infoBar {
@@ -40,16 +56,73 @@ a:hover {
   width: 100%;
   background-color: var(--main-medium);
   margin: 0;
+  font-size: 22px;
+  overflow: hidden;
 }
-ul {
-  list-style-type: none;
-  padding-left: 0;
-  margin: 0;
+#infoBar ul {
   background-color: var(--main-medium);
   color: var(--white);
 }
-li {
+#infoBar li {
   display: block;
   float: left;
   margin: 10px;
+}
+.middleSection {
+  width: 50%;
+  display: block;
+  float: left;
+  height: 100%;
+}
+
+/*** Swatch Display: ***/
+
+
+/*** Guessing Zone: ***/
+h2 {
+  margin: 0;
+}
+p {
+  margin: 0;
+  text-align: center;
+  color: var(--main-light);
+}
+.sliderContainer {
+  width: 60%;
+  margin: 0 auto;
+}
+.slider {
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  float: left;
+  -webkit-appearance: none;
+  background: var(--blue);
+  outline: none;
+  opacity: 0.6;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+.slider:hover {
+  opacity: 1;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background: var(--highlight);
+  cursor: pointer;
+}
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background: var(--highlight);
+  cursor: pointer;
+}
+#guessZone li {
+  display: block;
+  margin: 60px 0;
 }
