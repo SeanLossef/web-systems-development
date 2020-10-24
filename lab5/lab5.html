@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html class="html">
+   <head class="head">
+      <title class="title">Lab 5/6</title>
+      <link class="link" rel="stylesheet" href="lab5.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script class="script"src="lab5.js"></script>
+   </head>
+   <body>
+     <section class="hexedDiv">
+         <section id="infoBar">
+           <ul>
+               <li>Welcome to Hexed, <span id="name"></span>!</li>
+               <li>Turns left: <span id="turns"></span></li>
+            </ul>
+        </section>
+        <section>
+           <section id="swatchDisplay" class="middleSection">
+               <h1>Guess this hex value!</h1>
+               <div id="swatch"></div>
+           </section>
+           <section id="guessZone" class="middleSection">
+              <ul>
+                 <li>
+                     <h2>Red</h2>
+                     <p id="redHexVal">#</p>
+                     <div class="sliderContainer">
+                        <input type="range" min="1" max="255" value="1" class="slider" id="redSlider">
+                     </div>
+                 </li>
+                 <li>
+                     <h2>Green</h2>
+                     <p id="greenHexVal">#</p>
+                     <div class="sliderContainer">
+                        <input type="range" min="1" max="255" value="1" class="slider" id="greenSlider">
+                     </div>
+                 </li>
+                 <li>
+                     <h2>Blue</h2>
+                     <p id="blueHexVal">#</p>
+                     <div class="sliderContainer">
+                        <input type="range" min="1" max="255" value="1" class="slider" id="blueSlider">
+                     </div>
+                 </li>
+              </ul>
+              <div id="buttonContainer">
+                  <button>SUBMIT GUESS</button>
+              </div>
+           </section>
+        </section>
+     </section> 
+   </body>
+</html>
