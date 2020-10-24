@@ -76,7 +76,12 @@ h2 {
 }
 
 /*** Swatch Display: ***/
-
+#swatch {
+  height: 200px;
+  width: 200px;
+  margin: 0 auto;
+  border-radius: 10px;
+}
 
 /*** Guessing Zone: ***/
 h2 {
@@ -86,6 +91,32 @@ p {
   margin: 0;
   text-align: center;
   color: var(--main-light);
+}
+#buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+button {
+  border-radius: 10px;
+  font-family: 'Teko', sans-serif;
+  font-size: 25px;
+  letter-spacing: 2px;
+  text-align: center;
+  padding: 3px 20px;
+  color: var(--white);
+  background-color: var(--main-light);
+  border: none;
+  transition: 0.2s;
+  outline:none;
+}
+button:hover {
+  /* font-size: 26px; */
+  letter-spacing: 6px;
+  color: var(--main-medium);
+  background-color: var(--highlight);
+  cursor: pointer;
+  transition: 0.2s;
 }
 .sliderContainer {
   width: 60%;
