@@ -14,6 +14,8 @@ $(document).ready(function () {
         }
 
         let turnsLeft = 3;
+        let milliseconds = 2000;
+        let bestScore = 0;
 
         // Sets up a new game
         function setup() {
@@ -32,6 +34,9 @@ $(document).ready(function () {
 
             $("#swatch").css("background-color", rgbStr.toString());
 
+            $('#score').html(bestScore);
+            $('#secondScore').html("");
+
             // Reset inputs
             ['red','green','blue'].forEach(function(color) {
                 $('#'+color+'Slider').val(0);
@@ -41,7 +46,7 @@ $(document).ready(function () {
 
         // Called when game has completed
         function gameOver() {
-            
+
 
             setup();
         }
@@ -76,9 +81,14 @@ $(document).ready(function () {
             let greenOffset = Math.round((Math.abs(greenRand - greenVal) / 255) * 100);
             let blueOffset = Math.round((Math.abs(blueRand - blueVal) / 255) * 100);
 
-            console.log(redOffset);
-            console.log(greenOffset);
-            console.log(blueOffset);
+            // Calculate score
+            let score = (300 - (redOffset + greenOffset + blueOffset)) * ((20000 - milliseconds) < 0 ? 0 : (20000 - milliseconds));
+            $('#secondScore').html("");
+            if (score > bestScore)
+                bestScore = score;
+            else
+                $('#secondScore').html(score);
+            $('#score').html(bestScore);
 
             // Decrement turns
             turnsLeft--;
