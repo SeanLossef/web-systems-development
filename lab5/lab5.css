@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Teko&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
 
 :root {
-  --white: #F8EBFF;
+  --white: #f8ebff;
   --highlight: #239580;
-  --blue: #C7C9D1;
+  --blue: #c7c9d1;
 
-  --main-dark: #0D0A0B;
+  --main-dark: #0d0a0b;
   --main-medium: #433248;
   --main-light: #705577;
 }
@@ -18,14 +18,15 @@ html {
   min-height: 100%;
 }
 body {
-  background-color:var(--white);
-  font-family: 'Teko', sans-serif;
+  background-color: var(--white);
+  font-family: "Teko", sans-serif;
   letter-spacing: 1px;
   margin: 0;
 }
 
-h1, h2 {
-  font-family: 'Staatliches', cursive;
+h1,
+h2 {
+  font-family: "Staatliches", cursive;
   color: var(--main-medium);
   text-align: center;
 }
@@ -44,7 +45,7 @@ ul {
 
 /*** Font Sizes: ***/
 h1 {
-  font-size: 30px;  
+  font-size: 30px;
 }
 h2 {
   font-size: 20px;
@@ -68,14 +69,11 @@ h2 {
   float: left;
   margin: 10px;
 }
-.middleSection {
-  width: 50%;
-  display: block;
-  float: left;
-  height: 100%;
-}
 
 /*** Swatch Display: ***/
+#swatchDisplay {
+  display: block;
+}
 #swatch {
   height: 200px;
   width: 200px;
@@ -84,6 +82,9 @@ h2 {
 }
 
 /*** Guessing Zone: ***/
+#guessZone {
+  display: block;
+}
 h2 {
   margin: 0;
 }
@@ -99,7 +100,7 @@ p {
 }
 button {
   border-radius: 10px;
-  font-family: 'Teko', sans-serif;
+  font-family: "Teko", sans-serif;
   font-size: 25px;
   letter-spacing: 2px;
   text-align: center;
@@ -108,7 +109,7 @@ button {
   background-color: var(--main-light);
   border: none;
   transition: 0.2s;
-  outline:none;
+  outline: none;
 }
 button:hover {
   /* font-size: 26px; */
@@ -131,8 +132,8 @@ button:hover {
   background: var(--blue);
   outline: none;
   opacity: 0.6;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
 }
 .slider:hover {
   opacity: 1;
@@ -156,4 +157,18 @@ button:hover {
 #guessZone li {
   display: block;
   margin: 60px 0;
+}
+.hexVal {
+  display: block;
+  font-size: 29px;
+  -webkit-appearance: none;
+  appearance: none;
+  margin: auto;
+  text-align: center;
+  border: 0;
+  font-weight: bold;
+  outline: none;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--main-medium);
 }
