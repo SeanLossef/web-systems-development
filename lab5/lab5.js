@@ -4,6 +4,15 @@ $(document).ready(function () {
         // default settings
         var opts = $.extend( {}, $.fn.hexed.defaults, settings );
 
+        // Validate options
+        if (typeof opts.playerName !== 'string'
+            || typeof opts.turnNum !== 'number'
+            || opts.turnNum < 1
+            || opts.turnNum > 5) {
+            console.log('Invalid options!');
+            return;
+        }
+
         // set player name + number of turns
         $("#name").text(opts.playerName);
         $("#turns").text(opts.turnNum);
@@ -21,12 +30,15 @@ $(document).ready(function () {
     };
     // Define plugin defaults
     $.fn.hexed.defaults = {
-        playerName: "YourName",
+        playerName: "",
         turnNum: 3
     };
 
     // Run the plugin
-    $("#hexedDiv").hexed("somejson");
+    $("#hexedDiv").hexed({
+        playerName: 'Sean',
+        turnNum: 5
+    });
 
     
 });
