@@ -4,6 +4,7 @@
       <title class="title">Lab 5/6</title>
       <link class="link" rel="stylesheet" href="lab5.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
       <script class="script"src="lab5.js"></script>
    </head>
    <body>
@@ -27,7 +28,7 @@
                      <h2>Red</h2>
                      <input type="text" id="redHexVal" maxlength="2" value="0" class="hexVal">
                      <div class="sliderContainer">
-                        <input type="range" min="0" max="255" value="0" class="slider" id="redSlider">
+                        <div id="redSlider"></div>
                      </div>
                      <p id="redFeedback" class="feedback"></p>
                  </li>
@@ -35,7 +36,7 @@
                      <h2>Green</h2>
                      <input type="text" id="greenHexVal" maxlength="2" value="0" class="hexVal">
                      <div class="sliderContainer">
-                        <input type="range" min="0" max="255" value="0" class="slider" id="greenSlider">
+                        <div id="greenSlider"></div>
                      </div>
                      <p id="greenFeedback" class="feedback"></p>
                  </li>
@@ -43,7 +44,7 @@
                      <h2>Blue</h2>
                      <input type="text" id="blueHexVal" maxlength="2" value="0" class="hexVal">
                      <div class="sliderContainer">
-                        <input type="range" min="0" max="255" value="0" class="slider" id="blueSlider">
+                        <div id="blueSlider"></div>
                      </div>
                      <p id="blueFeedback" class="feedback"></p>
                  </li>

@@ -67,8 +67,12 @@ $(document).ready(function () {
 
         // Setup inputs for each color
         ['red','green','blue'].forEach(function(color) {
-            $('#'+color+'Slider').change(function() {
-                let newVal = this.value;
+            $('#'+color+'Slider').slider({
+                min: 0,
+                max: 255,
+            });
+            $('#'+color+'Slider').on("slidestop", function(event, ui) {
+                let newVal = ui.value;
                 $('#'+color+'HexVal').val(parseInt(newVal).toString(16));
             });
             $('#'+color+'HexVal').change(function() {
@@ -76,7 +80,7 @@ $(document).ready(function () {
                 let newVal = parseInt(this.value, 16);
                 if (isNaN(newVal))
                     newVal = 0;
-                $('#'+color+'Slider').val(newVal);
+                $('#'+color+'Slider').slider('value', newVal);
                 $('#'+color+'HexVal').val(newVal.toString(16));
             });
         });
