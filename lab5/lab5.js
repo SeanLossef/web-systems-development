@@ -21,10 +21,41 @@ $(document).ready(function () {
         redRand = Math.floor((Math.random() * 255) + 1);
         greenRand = Math.floor((Math.random() * 255) + 1);
         blueRand = Math.floor((Math.random() * 255) + 1);
-        console.log(redRand, blueRand, greenRand);
+
         var rgbStr = "rgb(" + redRand + ", " + greenRand + ", " + blueRand + ")";
-        console.log(rgbStr);
+
         $("#swatch").css("background-color", rgbStr.toString());
+
+        // Setup inputs for each color
+        ['red','green','blue'].forEach(function(color) {
+            $('#'+color+'Slider').change(function() {
+                let newVal = this.value;
+                $('#'+color+'HexVal').val(parseInt(newVal).toString(16));
+            });
+            $('#'+color+'HexVal').change(function() {
+                // parse int
+                let newVal = parseInt(this.value, 16);
+                if (isNaN(newVal))
+                    newVal = 0;
+                $('#'+color+'Slider').val(newVal);
+                $('#'+color+'HexVal').val(newVal.toString(16));
+            });
+        });
+
+        // Submit Button
+        $('submitButton').click(function() {
+            let redVal = parseInt($('#redHexVal').val(), 16);
+            let greenVal = parseInt($('#greenHexVal').val(), 16);
+            let blueVal = parseInt($('#blueHexVal').val(), 16);
+
+            let redOffset = (abs(redRand - redVal) / 255) * 100;
+            let greenOffset = (abs(greenRand - greenVal) / 255) * 100;
+            let blueOffset = (abs(blueRand - blueVal) / 255) * 100;
+
+            console.log(redOffset);
+            console.log(greenOffset);
+            console.log(blueOffset);
+        });
         
         return this;
     };
