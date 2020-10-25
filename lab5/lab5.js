@@ -14,7 +14,7 @@ $(document).ready(function () {
         }
 
         let turnsLeft = 3;
-        let milliseconds = 2000;
+        let milliseconds = 0;
         let bestScore = 0;
 
         // Sets up a new game
@@ -34,6 +34,7 @@ $(document).ready(function () {
 
             $("#swatch").css("background-color", rgbStr.toString());
 
+            bestScore = 0;
             $('#score').html(bestScore);
             $('#secondScore').html("");
 
@@ -42,6 +43,16 @@ $(document).ready(function () {
                 $('#'+color+'Slider').val(0);
                 $('#'+color+'HexVal').val(0);
             });
+
+            // Reset timer
+            milliseconds = 0;
+        }
+
+        // Start game timer
+        var counter = setInterval(timer, 10);
+        function timer() {
+            milliseconds += 10;
+            $('#timer').html(milliseconds);
         }
 
         // Called when game has completed
