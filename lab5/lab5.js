@@ -42,6 +42,7 @@ $(document).ready(function () {
             ['red','green','blue'].forEach(function(color) {
                 $('#'+color+'Slider').val(0);
                 $('#'+color+'HexVal').val(0);
+                $('#'+color+'Feedback').html("");
             });
 
             // Reset timer
@@ -91,6 +92,11 @@ $(document).ready(function () {
             let redOffset = Math.round((Math.abs(redRand - redVal) / 255) * 100);
             let greenOffset = Math.round((Math.abs(greenRand - greenVal) / 255) * 100);
             let blueOffset = Math.round((Math.abs(blueRand - blueVal) / 255) * 100);
+
+            // Display offsets
+            $('#redFeedback').html(redOffset == 0 ? 'You got it!' : redOffset+'% off');
+            $('#greenFeedback').html(greenOffset == 0 ? 'You got it!' : greenOffset+'% off');
+            $('#blueFeedback').html(blueOffset == 0 ? 'You got it!' : blueOffset+'% off');
 
             // Calculate score
             let score = (300 - (redOffset + greenOffset + blueOffset)) * ((20000 - milliseconds) < 0 ? 0 : (20000 - milliseconds));
