@@ -43,14 +43,14 @@ $(document).ready(function () {
         });
 
         // Submit Button
-        $('submitButton').click(function() {
+        $('#submitButton').click(function() {
             let redVal = parseInt($('#redHexVal').val(), 16);
             let greenVal = parseInt($('#greenHexVal').val(), 16);
             let blueVal = parseInt($('#blueHexVal').val(), 16);
 
-            let redOffset = (abs(redRand - redVal) / 255) * 100;
-            let greenOffset = (abs(greenRand - greenVal) / 255) * 100;
-            let blueOffset = (abs(blueRand - blueVal) / 255) * 100;
+            let redOffset = Math.round((Math.abs(redRand - redVal) / 255) * 100);
+            let greenOffset = Math.round((Math.abs(greenRand - greenVal) / 255) * 100);
+            let blueOffset = Math.round((Math.abs(blueRand - blueVal) / 255) * 100);
 
             console.log(redOffset);
             console.log(greenOffset);
