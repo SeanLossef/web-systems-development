@@ -13,18 +13,40 @@ $(document).ready(function () {
             return;
         }
 
-        // set player name + number of turns
-        $("#name").text(opts.playerName);
-        $("#turns").text(opts.turnNum);
+        let turnsLeft = 3;
 
-        // set up random color
-        redRand = Math.floor((Math.random() * 255) + 1);
-        greenRand = Math.floor((Math.random() * 255) + 1);
-        blueRand = Math.floor((Math.random() * 255) + 1);
+        // Sets up a new game
+        function setup() {
+            // set player name + number of turns
+            $("#name").text(opts.playerName);
+            $("#turns").text(opts.turnNum);
 
-        var rgbStr = "rgb(" + redRand + ", " + greenRand + ", " + blueRand + ")";
+            turnsLeft = opts.turnNum;
 
-        $("#swatch").css("background-color", rgbStr.toString());
+            // set up random color
+            redRand = Math.floor((Math.random() * 255) + 1);
+            greenRand = Math.floor((Math.random() * 255) + 1);
+            blueRand = Math.floor((Math.random() * 255) + 1);
+
+            var rgbStr = "rgb(" + redRand + ", " + greenRand + ", " + blueRand + ")";
+
+            $("#swatch").css("background-color", rgbStr.toString());
+
+            // Reset inputs
+            ['red','green','blue'].forEach(function(color) {
+                $('#'+color+'Slider').val(0);
+                $('#'+color+'HexVal').val(0);
+            });
+        }
+
+        // Called when game has completed
+        function gameOver() {
+            
+
+            setup();
+        }
+
+        setup();
 
         // Setup inputs for each color
         ['red','green','blue'].forEach(function(color) {
@@ -44,10 +66,12 @@ $(document).ready(function () {
 
         // Submit Button
         $('#submitButton').click(function() {
+            // Get guess values
             let redVal = parseInt($('#redHexVal').val(), 16);
             let greenVal = parseInt($('#greenHexVal').val(), 16);
             let blueVal = parseInt($('#blueHexVal').val(), 16);
 
+            // Calculate percent offsets
             let redOffset = Math.round((Math.abs(redRand - redVal) / 255) * 100);
             let greenOffset = Math.round((Math.abs(greenRand - greenVal) / 255) * 100);
             let blueOffset = Math.round((Math.abs(blueRand - blueVal) / 255) * 100);
@@ -55,6 +79,15 @@ $(document).ready(function () {
             console.log(redOffset);
             console.log(greenOffset);
             console.log(blueOffset);
+
+            // Decrement turns
+            turnsLeft--;
+            $("#turns").text(turnsLeft);
+
+            // Game over
+            if (turnsLeft == 0) {
+                gameOver();
+            }
         });
         
         return this;
