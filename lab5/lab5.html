@@ -17,50 +17,51 @@
             </ul>
          </section>
          <section>
-            <section id="swatchDisplay">
-                  <h1>Guess this hex value!</h1>
-                  <div id="swatch"></div>
-            </section>
-            <section id="guessZone">
-               <ul>
-                  <li>
-                        <h2>Red</h2>
-                        <input type="text" id="redHexVal" maxlength="2" value="0" class="hexVal">
-                        <div class="sliderContainer">
-                           <div id="redSlider"></div>
-                        </div>
-                        <p id="redFeedback" class="feedback"></p>
-                  </li>
-                  <li>
-                        <h2>Green</h2>
-                        <input type="text" id="greenHexVal" maxlength="2" value="0" class="hexVal">
-                        <div class="sliderContainer">
-                           <div id="greenSlider"></div>
-                        </div>
-                        <p id="greenFeedback" class="feedback"></p>
-                  </li>
-                  <li>
-                        <h2>Blue</h2>
-                        <input type="text" id="blueHexVal" maxlength="2" value="0" class="hexVal">
-                        <div class="sliderContainer">
-                           <div id="blueSlider"></div>
-                        </div>
-                        <p id="blueFeedback" class="feedback"></p>
-                  </li>
-               </ul>
-               <div id="buttonContainer">
-                     <button id="submitButton">SUBMIT GUESS</button>
-                     <button id="newGameButton">NEW GAME</button>
-               </div>
-               <div>
-                  <p>Score: <span id="score"></span></p>
-                  <p><span id="secondScore"></span></p>
-               </div>
-            </section>
-            <section>
+            <div id="swatchAndGuessing">
+               <section id="swatchDisplay">
+                     <h1>Guess this hex value!</h1>
+                     <div id="swatch"></div>
+               </section>
+               <section id="guessZone">
+                  <ul>
+                     <li>
+                           <h2>Red</h2>
+                           <input type="text" id="redHexVal" maxlength="2" value="0" class="hexVal">
+                           <div class="sliderContainer">
+                              <div id="redSlider"></div>
+                           </div>
+                           <p id="redFeedback" class="feedback"></p>
+                     </li>
+                     <li>
+                           <h2>Green</h2>
+                           <input type="text" id="greenHexVal" maxlength="2" value="0" class="hexVal">
+                           <div class="sliderContainer">
+                              <div id="greenSlider"></div>
+                           </div>
+                           <p id="greenFeedback" class="feedback"></p>
+                     </li>
+                     <li>
+                           <h2>Blue</h2>
+                           <input type="text" id="blueHexVal" maxlength="2" value="0" class="hexVal">
+                           <div class="sliderContainer">
+                              <div id="blueSlider"></div>
+                           </div>
+                           <p id="blueFeedback" class="feedback"></p>
+                     </li>
+                  </ul>
+                  <div id="buttonContainer">
+                        <button id="submitButton">SUBMIT GUESS</button>
+                        <button id="newGameButton">NEW GAME</button>
+                  </div>
+                  <div>
+                     <p>Score: <span id="score"></span></p>
+                     <p><span id="secondScore"></span></p>
+                  </div>
+               </section>
+            </div>
+            <section id="scoreContainer">
                <h3>High Scores</h3>
                <ul id="scoreboard">
-
                </ul>
             </section>
          </section>

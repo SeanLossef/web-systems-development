@@ -36,7 +36,7 @@ $(document).ready(function () {
             let scoreboard = JSON.parse(localStorage.getItem('scoreboard'));
             let innerHTML = '';
             scoreboard.forEach(function(record) {
-                innerHTML += "<li>"+record.name+record.score+"</li>";
+                innerHTML += "<li>"+record.name+" - "+record.score+"</li>";
             });
             $('#scoreboard').html(innerHTML);
         }
@@ -192,7 +192,7 @@ $(document).ready(function () {
 
     // Run the plugin
     $("#hexedDiv").hexed({
-        playerName: 'Sean',
+        playerName: 'Patricia',
         turnNum: 5
     });
 

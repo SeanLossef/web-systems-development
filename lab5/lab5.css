@@ -45,7 +45,8 @@ ul {
 
 /*** Font Sizes: ***/
 h1 {
-  font-size: 30px;
+  font-size: 28px;
+  margin: 20px 0 10px;
 }
 h2 {
   font-size: 20px;
@@ -75,13 +76,18 @@ h2 {
   display: block;
 }
 #swatch {
-  height: 200px;
-  width: 200px;
+  height: 100px;
+  width: 100px;
   margin: 0 auto;
   border-radius: 10px;
 }
 
 /*** Guessing Zone: ***/
+#swatchAndGuessing {
+  width: 80%;
+  display: block;
+  float: left;
+}
 #guessZone {
   display: block;
 }
@@ -127,11 +133,11 @@ button:hover {
 }
 #guessZone li {
   display: block;
-  margin: 40px 0;
+  margin: 20px 0;
 }
 .hexVal {
   display: block;
-  font-size: 29px;
+  font-size: 26px;
   -webkit-appearance: none;
   appearance: none;
   margin: auto;
@@ -141,7 +147,7 @@ button:hover {
   outline: none;
   text-transform: uppercase;
   background: transparent;
-  color: var(--main-medium);
+  color: var(--main-light);
 }
 .feedback {
   height: 20px;
@@ -181,4 +187,16 @@ button:hover {
 .ui-slider-horizontal {
   height: 10px;
   border-radius: 5px;
+}
+
+/*** Score Container: ***/
+#scoreContainer {
+  width: 20%;
+  display: block;
+  float: left;
+  margin-top: 10%;
+}
+#scoreContainer * {
+  margin: 5px auto;
+  text-align: center;
 }
