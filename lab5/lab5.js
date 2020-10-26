@@ -1,6 +1,47 @@
 $(document).ready(function () {
     
     $.fn.hexed = function(settings) {
+        // Scoreboard
+        if (localStorage.getItem('scoreboard') == null) {
+            localStorage.setItem('scoreboard', JSON.stringify([
+                { name: 'asdf', score: 0, time: 0 },
+                { name: 'asdf', score: 0, time: 0 },
+                { name: 'asdf', score: 0, time: 0 },
+                { name: 'asdf', score: 0, time: 0 },
+                { name: 'asdf', score: 0, time: 0 },
+                { name: 'asdf', score: 0, time: 0 },
+                { name: 'asdf', score: 0, time: 0 },
+                { name: 'asdf', score: 0, time: 0 },
+                { name: 'asdf', score: 0, time: 0 },
+                { name: 'asdf', score: 0, time: 0 },
+            ]));
+        }
+
+        function storeRecord(name, score, time) {
+            let scoreboard = JSON.parse(localStorage.getItem('scoreboard'));
+            for (var i = 0; i < 10; i++) {
+                if (score > scoreboard[i].score || (score == scoreboard[i].score && time < scoreboard[i].time)) {
+                    scoreboard.splice(i, 0, {
+                        name: name,
+                        score: score,
+                        time: time
+                    });
+                    localStorage.setItem('scoreboard', JSON.stringify(scoreboard.splice(0,10)));
+                    return;
+                }
+            }
+        }
+
+        function showScoreboard() {
+            let scoreboard = JSON.parse(localStorage.getItem('scoreboard'));
+            let innerHTML = '';
+            scoreboard.forEach(function(record) {
+                innerHTML += "<li>"+record.name+record.score+"</li>";
+            });
+            $('#scoreboard').html(innerHTML);
+        }
+
+
         // default settings
         var opts = $.extend( {}, $.fn.hexed.defaults, settings );
 
@@ -48,6 +89,8 @@ $(document).ready(function () {
 
             $('#newGameButton').hide();
             $('#submitButton').show();
+
+            showScoreboard();
 
             // Reset timer
             milliseconds = 0;
@@ -122,6 +165,8 @@ $(document).ready(function () {
             // Correct guess
             if (redOffset == 0 && greenOffset == 0 && blueOffset == 0)
                 gameOver(true);
+
+            storeRecord(opts.playerName, score, milliseconds);
 
             // Decrement turns
             turnsLeft--;
