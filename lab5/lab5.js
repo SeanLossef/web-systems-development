@@ -16,6 +16,7 @@ $(document).ready(function () {
         let turnsLeft = 3;
         let milliseconds = 0;
         let bestScore = 0;
+        let counter;
 
         // Sets up a new game
         function setup() {
@@ -40,33 +41,36 @@ $(document).ready(function () {
 
             // Reset inputs
             ['red','green','blue'].forEach(function(color) {
-                $('#'+color+'Slider').val(0);
+                $('#'+color+'Slider').slider('value', 0);
                 $('#'+color+'HexVal').val(0);
                 $('#'+color+'Feedback').html("");
             });
 
+            $('#newGameButton').hide();
+            $('#submitButton').show();
+
             // Reset timer
             milliseconds = 0;
-        }
 
-        // Start game timer
-        var counter = setInterval(timer, 10);
-        function timer() {
-            milliseconds += 10;
-            $('#timer').html(milliseconds);
+            // Start game timer
+            counter = setInterval(timer, 10);
+            function timer() {
+                milliseconds += 10;
+                $('#timer').html(milliseconds);
+            }
         }
 
         // Called when game has completed
-        function gameOver() {
+        function gameOver(won) {
+            clearInterval(counter);
 
-
-            setup();
+            $('#newGameButton').show();
+            $('#submitButton').hide();
         }
-
-        setup();
 
         // Setup inputs for each color
         ['red','green','blue'].forEach(function(color) {
+            // on slider change
             $('#'+color+'Slider').slider({
                 min: 0,
                 max: 255,
@@ -75,6 +79,8 @@ $(document).ready(function () {
                 let newVal = ui.value;
                 $('#'+color+'HexVal').val(parseInt(newVal).toString(16));
             });
+
+            // on text input change
             $('#'+color+'HexVal').change(function() {
                 // parse int
                 let newVal = parseInt(this.value, 16);
@@ -84,6 +90,8 @@ $(document).ready(function () {
                 $('#'+color+'HexVal').val(newVal.toString(16));
             });
         });
+
+        setup();
 
         // Submit Button
         $('#submitButton').click(function() {
@@ -111,14 +119,22 @@ $(document).ready(function () {
                 $('#secondScore').html(score);
             $('#score').html(bestScore);
 
+            // Correct guess
+            if (redOffset == 0 && greenOffset == 0 && blueOffset == 0)
+                gameOver(true);
+
             // Decrement turns
             turnsLeft--;
             $("#turns").text(turnsLeft);
 
             // Game over
-            if (turnsLeft == 0) {
-                gameOver();
-            }
+            if (turnsLeft == 0)
+                gameOver(false);
+        });
+
+        // New Game Button
+        $('#newGameButton').click(function() {
+            setup();
         });
         
         return this;
