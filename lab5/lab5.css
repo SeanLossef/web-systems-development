@@ -43,6 +43,7 @@ ul {
   margin: 0;
 }
 
+
 /*** Font Sizes: ***/
 h1 {
   font-size: 28px;
@@ -70,6 +71,24 @@ h2 {
   float: left;
   margin: 10px;
 }
+#infoBar li.fltRight {
+  float: right;
+}
+#settingsForm input {
+  width: 100px;
+}
+#settingsForm input[type=submit] {
+  background-color: var(--highlight);
+  color:var(--white);
+  padding: 2px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Teko", sans-serif;
+  font-size: 20px;
+  width: 150px;
+}
+
 
 /*** Swatch Display: ***/
 #swatchDisplay {

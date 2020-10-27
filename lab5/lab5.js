@@ -1,6 +1,9 @@
 $(document).ready(function () {
     
     $.fn.hexed = function(settings) {
+        // default settings
+        var opts = $.extend( {}, $.fn.hexed.defaults, settings );
+
         // Scoreboard
         if (localStorage.getItem('scoreboard') == null) {
             localStorage.setItem('scoreboard', JSON.stringify([
@@ -41,10 +44,6 @@ $(document).ready(function () {
             $('#scoreboard').html(innerHTML);
         }
 
-
-        // default settings
-        var opts = $.extend( {}, $.fn.hexed.defaults, settings );
-
         // Validate options
         if (typeof opts.playerName !== 'string'
             || typeof opts.turnNum !== 'number'
@@ -54,10 +53,45 @@ $(document).ready(function () {
             return;
         }
 
-        let turnsLeft = 3;
+        let turnsLeft = opts.turnNum;
         let milliseconds = 0;
         let bestScore = 0;
         let counter;
+
+        // First Time Setup
+        function firstSetup() {
+            // set player name + number of turns
+            $("#name").text(opts.playerName);
+            $("#turns").text(opts.turnNum);
+
+            turnsLeft = opts.turnNum;
+
+            // set up random color
+            redRand = Math.floor((Math.random() * 255) + 1);
+            greenRand = Math.floor((Math.random() * 255) + 1);
+            blueRand = Math.floor((Math.random() * 255) + 1);
+
+            var rgbStr = "rgb(" + redRand + ", " + greenRand + ", " + blueRand + ")";
+
+            $("#swatch").css("background-color", rgbStr.toString());
+
+            bestScore = 0;
+            $('#score').html(bestScore);
+            $('#secondScore').html("");
+
+            // Reset inputs
+            ['red','green','blue'].forEach(function(color) {
+                $('#'+color+'Slider').slider('value', 0);
+                $('#'+color+'HexVal').val(0);
+                $('#'+color+'Feedback').html("");
+            });
+
+            $('#newGameButton').show();
+            $('#submitButton').hide();
+            $('#settingsForm').show();
+
+            showScoreboard();
+        }
 
         // Sets up a new game
         function setup() {
@@ -89,6 +123,7 @@ $(document).ready(function () {
 
             $('#newGameButton').hide();
             $('#submitButton').show();
+            $('#settingsForm').hide();
 
             showScoreboard();
 
@@ -109,6 +144,7 @@ $(document).ready(function () {
 
             $('#newGameButton').show();
             $('#submitButton').hide();
+            $('#settingsForm').show();
         }
 
         // Setup inputs for each color
@@ -134,10 +170,25 @@ $(document).ready(function () {
             });
         });
 
-        setup();
+        firstSetup();
+
+        // Settings Button
+        $('#settingsSubmit').click(function() {
+            console.log($('#nameInput').val(), $('#turnsInput').val());
+            $("#settingsForm").submit(function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            });
+            $("#hexedDiv").hexed({
+                playerName: String($('#nameInput').val()),
+                turnNum: parseInt($('#turnsInput').val(), 10)
+            });
+        })
 
         // Submit Button
         $('#submitButton').click(function() {
+            console.log("#submitButton clicked");
+            console.log(turnsLeft);
             // Get guess values
             let redVal = parseInt($('#redHexVal').val(), 16);
             let greenVal = parseInt($('#greenHexVal').val(), 16);
@@ -190,12 +241,15 @@ $(document).ready(function () {
         turnNum: 3
     };
 
+    console.log("HIHIHIHIHIHI");
     // Run the plugin
     $("#hexedDiv").hexed({
-        playerName: 'Patricia',
-        turnNum: 5
+        playerName: $('#nameInput').value,
+        turnNum: $('#turnsInput').value
     });
 
-    
+    $("#settingsForm").submit(function(e) {
+        e.preventDefault();
+    });
 });
 
