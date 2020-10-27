@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    
+
     $.fn.hexed = function(settings) {
         // Scoreboard
         if (localStorage.getItem('scoreboard') == null) {
@@ -181,7 +181,7 @@ $(document).ready(function () {
         $('#newGameButton').click(function() {
             setup();
         });
-        
+
         return this;
     };
     // Define plugin defaults
@@ -196,6 +196,10 @@ $(document).ready(function () {
         turnNum: 5
     });
 
-    
-});
+    //Play background music
+    $("#toggleMusic").on("click", function() {
+		var audio = document.getElementById("gameAudio");
+    return audio.paused ? audio.play() : audio.pause();
+    });
 
+});
