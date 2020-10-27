@@ -140,6 +140,7 @@ $(document).ready(function () {
 
         // Called when game has completed
         function gameOver(won) {
+            console.log("gameOver!");
             clearInterval(counter);
 
             $('#newGameButton').show();
@@ -179,11 +180,15 @@ $(document).ready(function () {
                 e.preventDefault();
                 e.stopPropagation();
             });
-            $("#hexedDiv").hexed({
-                playerName: String($('#nameInput').val()),
-                turnNum: parseInt($('#turnsInput').val(), 10)
+            let pn = String($('#nameInput').val());
+            let tn = parseInt($('#turnsInput').val(), 10);
+            
+            $("#hexedDiv").remove()
+            $("#hexedDiv").empty().hexed({
+                playerName: pn,
+                turnNum: tn
             });
-        })
+        });
 
         // Submit Button
         $('#submitButton').click(function() {
@@ -237,16 +242,12 @@ $(document).ready(function () {
     };
     // Define plugin defaults
     $.fn.hexed.defaults = {
-        playerName: "",
+        playerName: "ANONYMOUS",
         turnNum: 3
     };
 
-    console.log("HIHIHIHIHIHI");
     // Run the plugin
-    $("#hexedDiv").hexed({
-        playerName: $('#nameInput').value,
-        turnNum: $('#turnsInput').value
-    });
+    $("#hexedDiv").empty().hexed();
 
     $("#settingsForm").submit(function(e) {
         e.preventDefault();
