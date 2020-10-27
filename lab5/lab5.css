@@ -52,7 +52,6 @@ h2 {
   font-size: 20px;
 }
 
-
 /*** Information Bar: ***/
 #infoBar {
   height: 50px;
@@ -82,8 +81,6 @@ h2 {
   margin: 0 auto;
   border-radius: 10px;
 }
-
-
 
 /*** Guessing Zone: ***/
 #swatchAndGuessing {
@@ -202,4 +199,5 @@ button:hover {
 #scoreContainer * {
   margin: 5px 0;
   text-align: center;
+  text-size-adjust: 20px;
 }

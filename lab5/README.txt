@@ -1,6 +1,8 @@
 Lab 5 + 6
 
 Creativity:
+-Charles: I worked on different ways to take the user input and set it as playerName. Also edited general styling and appeal of the page. Was going to implement a custom pop up section but could not get HTML form to work the way I wanted it.
+
 -Patricia: I worked on the general HTML outline and layout of the webpage, as well as the color scheme, fonts, and sizing of different sections.
 
 -Colleen: To add to a player's experience, I added background audio for the game. Music is toggled using a button that calls a jQuery function. For browsers that did not remove autoplay functionality, the music plays on page load.

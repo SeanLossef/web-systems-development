@@ -1,3 +1,5 @@
+var playerName = window.prompt("What's Your Name?")
+
 $(document).ready(function () {
 
     $.fn.hexed = function(settings) {
@@ -190,9 +192,11 @@ $(document).ready(function () {
         turnNum: 3
     };
 
+
+
     // Run the plugin
     $("#hexedDiv").hexed({
-        playerName: 'Patricia',
+        playerName: playerName,
         turnNum: 5
     });
 
@@ -202,4 +206,18 @@ $(document).ready(function () {
     return audio.paused ? audio.play() : audio.pause();
     });
 
+    //change name pop up
+    // $('#edit').on(click, function() {
+    //     var playerName = window.prompt("What is your Name")
+    // });
+
+    // $("#edit").on('click', function() {
+    // document.querySelector('.popupbg').style.display='flex'
+    // });
+    
+    // $(".close").on('click', function() {
+    //     document.querySelector('.popupbg').style.display='none'
+    //     });
+
+    
 });
