@@ -201,3 +201,8 @@ button:hover {
   text-align: center;
   text-size-adjust: 20px;
 }
+
+/*** Music  ***/
+#gameAudio {
+  display: none;
+}
