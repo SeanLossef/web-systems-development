@@ -27,7 +27,6 @@ class Addition extends Operation {
   }
 }
 
-
 // Add subclasses for Subtraction, Multiplication and Division here
 class Subtraction extends Operation {
   public function operate() {
@@ -54,11 +53,14 @@ class Division extends Operation {
   }
 }
 
+// subclasses for 1^x & e^x
+
+
 // Some debugs - uncomment these to see what is happening...
-echo '$_POST print_r=>',print_r($_POST);
-echo "<br>",'$_POST vardump=>',var_dump($_POST);
-echo '<br/>$_POST is ', (isset($_POST) ? 'set' : 'NOT set'), "<br/>";
-echo "<br/>---";
+// echo '$_POST print_r=>',print_r($_POST);
+// echo "<br>",'$_POST vardump=>',var_dump($_POST);
+// echo '<br/>$_POST is ', (isset($_POST) ? 'set' : 'NOT set'), "<br/>";
+// echo "<br/>---";
 
 
 // Check to make sure that POST was received 
@@ -103,7 +105,8 @@ echo "<br/>---";
 <!doctype html>
 <html>
 <head>
-<title>PHP Calculator</title>
+  <title>PHP Calculator</title>
+  <link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 <body>
   <pre id="result">
@@ -122,16 +125,21 @@ echo "<br/>---";
     } 
   ?>
   </pre>
-  <form method="post" action="calculator.php">
-    <input type="text" name="op1" id="name" value="" />
-    <input type="text" name="op2" id="name" value="" />
-    <br/>
-    <!-- Only one of these will be set with their respective value at a time -->
-    <input type="submit" name="add" value="Add" />  
-    <input type="submit" name="sub" value="Subtract" />  
-    <input type="submit" name="mult" value="Multiply" />  
-    <input type="submit" name="divi" value="Divide" />  
-  </form>
+  <section id="calculator">
+    <h1>Calculator</h1>
+    <p>input some values & select an operation below!</p>
+    <form method="post" action="calculator.php">
+      <section id="inputSection">
+        <input type="text" name="op1" id="name" value="" />
+        <input type="text" name="op2" id="name" value="" />
+      </section>
+      <!-- Only one of these will be set with their respective value at a time -->
+      <input type="submit" name="add" value="Add" />  
+      <input type="submit" name="sub" value="Subtract" />  
+      <input type="submit" name="mult" value="Multiply" />  
+      <input type="submit" name="divi" value="Divide" />  
+    </form>
+  </section>
 </body>
 </html>
 
