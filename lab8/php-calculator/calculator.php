@@ -134,10 +134,17 @@ class Division extends Operation {
         <input type="text" name="op2" id="name" value="" />
       </section>
       <!-- Only one of these will be set with their respective value at a time -->
-      <input type="submit" name="add" value="Add" />  
-      <input type="submit" name="sub" value="Subtract" />  
-      <input type="submit" name="mult" value="Multiply" />  
-      <input type="submit" name="divi" value="Divide" />  
+      <section id="basicOps">
+        <input type="submit" name="add" value="Add" />  
+        <input type="submit" name="sub" value="Subtract" />  
+        <input type="submit" name="mult" value="Multiply" />  
+        <input type="submit" name="divi" value="Divide" />  
+      </section>
+      <section id="powerOps">
+        <input type="submit" name="10tovar" value="10^x" />
+        <input type="submit" name="etovar" value="e^x" />
+      </section>
+      
     </form>
   </section>
 </body>
