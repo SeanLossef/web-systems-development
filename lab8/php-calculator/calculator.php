@@ -1,4 +1,17 @@
 <?php 
+abstract class SingleOp {
+  protected $operand_1;
+  public function __construct($o1) {
+    if (!is_numeric($o1)) {
+      throw new Exception('Non-numeric operand.');
+    }
+    
+    // Assign passed values to member variables
+    $this->operand_1 = $o1;
+  }
+  public abstract function operate();
+  public abstract function getEquation(); 
+}
 
 abstract class Operation {
   protected $operand_1;
@@ -17,7 +30,7 @@ abstract class Operation {
   public abstract function getEquation(); 
 }
 
-// Addition subclass inherits from Operation
+// Basic Operations
 class Addition extends Operation {
   public function operate() {
     return $this->operand_1 + $this->operand_2;
@@ -26,8 +39,6 @@ class Addition extends Operation {
     return $this->operand_1 . ' + ' . $this->operand_2 . ' = ' . $this->operate();
   }
 }
-
-// Add subclasses for Subtraction, Multiplication and Division here
 class Subtraction extends Operation {
   public function operate() {
     return $this->operand_1 - $this->operand_2;
@@ -53,8 +64,23 @@ class Division extends Operation {
   }
 }
 
-// subclasses for 1^x & e^x
-
+// subclasses for 10^x & e^x
+class TentoVar extends SingleOp {
+  public function operate() {
+    return pow(10, $this->operand_1);
+  }
+  public function getEquation() {
+    return '10^' . $this->operand_1 . ' = ' . $this->operate();
+  }
+}
+class EtoVar extends SingleOp {
+  public function operate() {
+    return exp($this->operand_1);
+  }
+  public function getEquation() {
+    return 'e^' . $this->operand_1 . ' = ' . $this->operate();
+  }
+}
 
 // Some debugs - uncomment these to see what is happening...
 // echo '$_POST print_r=>',print_r($_POST);
@@ -96,6 +122,12 @@ class Division extends Operation {
     if (isset($_POST['mult']) && $_POST['mult'] == 'Multiply') {
       $op = new Multiplication($o1, $o2);
     }
+    if (isset($_POST['10tovar']) && $_POST['10tovar'] == '10^x') {
+      $op = new TentoVar($o1);
+    }
+    if (isset($_POST['etovar']) && $_POST['etovar'] == 'e^x') {
+      $op = new EtoVar($o1);
+    }
   }
   catch (Exception $e) {
     $err[] = $e->getMessage();
@@ -109,26 +141,28 @@ class Division extends Operation {
   <link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 <body>
-  <pre id="result">
-  <?php 
-    if (isset($op)) {
-      try {
-        echo $op->getEquation();
-      }
-      catch (Exception $e) { 
-        $err[] = $e->getMessage();
-      }
-    }
-
-    foreach($err as $error) {
-        echo $error . "\n";
-    } 
-  ?>
-  </pre>
+  
   <section id="calculator">
-    <h1>Calculator</h1>
-    <p>input some values & select an operation below!</p>
+    <h1>Welcome to php Calculator!</h1>
+    <h2>input some values & select an operation below!</h2>
+    <p>if using a single input operation, put the variable in the first input box</p>
     <form method="post" action="calculator.php">
+    <pre id="result">
+      <?php 
+        if (isset($op)) {
+          try {
+            echo $op->getEquation();
+          }
+          catch (Exception $e) { 
+            $err[] = $e->getMessage();
+          }
+        }
+
+        foreach($err as $error) {
+            echo $error . "\n";
+        } 
+      ?>
+      </pre>
       <section id="inputSection">
         <input type="text" name="op1" id="name" value="" />
         <input type="text" name="op2" id="name" value="" />
