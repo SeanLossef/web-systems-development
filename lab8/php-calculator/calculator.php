@@ -82,6 +82,24 @@ class EtoVar extends SingleOp {
   }
 }
 
+// subclasses for x^2 & x^y
+class varto2 extends SingleOp {
+  public function operate() {
+    return pow($this->operand_1, 2);
+  }
+  public function getEquation() {
+    return  $this->operand_1 . '^2'.' = '. $this->operate();
+  }
+}
+class vartovar extends Operation {
+  public function operate() {
+    return pow($this->operand_1, $this->operand_2);
+  }
+  public function getEquation() {
+    return  $this->operand_1.'^' . $this->operand_2 . ' = ' . $this->operate();
+  }
+}
+
 // Some debugs - uncomment these to see what is happening...
 // echo '$_POST print_r=>',print_r($_POST);
 // echo "<br>",'$_POST vardump=>',var_dump($_POST);
@@ -127,6 +145,12 @@ class EtoVar extends SingleOp {
     }
     if (isset($_POST['etovar']) && $_POST['etovar'] == 'e^x') {
       $op = new EtoVar($o1);
+    }
+    if (isset($_POST['varto2']) && $_POST['varto2'] == 'x^2') {
+      $op = new varto2($o1);
+    }
+    if (isset($_POST['vartovar']) && $_POST['vartovar'] == 'x^y') {
+      $op = new vartovar($o1, $o2);
     }
   }
   catch (Exception $e) {
@@ -177,6 +201,8 @@ class EtoVar extends SingleOp {
       <section id="powerOps">
         <input type="submit" name="10tovar" value="10^x" />
         <input type="submit" name="etovar" value="e^x" />
+        <input type="submit" name="varto2" value="x^2" />
+        <input type="submit" name="vartovar" value="x^y" />
       </section>
       
     </form>
