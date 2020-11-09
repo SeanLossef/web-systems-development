@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+// Operation with single operand
 abstract class SingleOp {
   protected $operand_1;
   public function __construct($o1) {
@@ -13,6 +15,7 @@ abstract class SingleOp {
   public abstract function getEquation(); 
 }
 
+// Operation with 2 operands
 abstract class Operation {
   protected $operand_1;
   protected $operand_2;
@@ -29,6 +32,7 @@ abstract class Operation {
   public abstract function operate();
   public abstract function getEquation(); 
 }
+
 
 // Basic Operations
 class Addition extends Operation {
@@ -64,7 +68,7 @@ class Division extends Operation {
   }
 }
 
-// subclasses for 10^x & e^x
+// subclasses for exponentials
 class TentoVar extends SingleOp {
   public function operate() {
     return pow(10, $this->operand_1);
@@ -81,8 +85,6 @@ class EtoVar extends SingleOp {
     return 'e^' . $this->operand_1 . ' = ' . $this->operate();
   }
 }
-
-// subclasses for x^2 & x^y
 class varto2 extends SingleOp {
   public function operate() {
     return pow($this->operand_1, 2);
@@ -96,66 +98,73 @@ class vartovar extends Operation {
     return pow($this->operand_1, $this->operand_2);
   }
   public function getEquation() {
-    return  $this->operand_1.'^' . $this->operand_2 . ' = ' . $this->operate();
+    return $this->operand_1.'^' . $this->operand_2 . ' = ' . $this->operate();
+  }
+}
+class SquareRoot extends SingleOp {
+  public function operate() {
+    return sqrt($this->operand_1);
+  }
+  public function getEquation() {
+    return 'sqrt(' . $this->operand_1 . ') = ' . $this->operate();
   }
 }
 
-// Some debugs - uncomment these to see what is happening...
-// echo '$_POST print_r=>',print_r($_POST);
-// echo "<br>",'$_POST vardump=>',var_dump($_POST);
-// echo '<br/>$_POST is ', (isset($_POST) ? 'set' : 'NOT set'), "<br/>";
-// echo "<br/>---";
-
-
-// Check to make sure that POST was received 
-// upon initial load, the page will be sent back via the initial GET at which time
-// the $_POST array will not have values - trying to access it will give undefined message
-
-  if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $o1 = $_POST['op1'];
-    $o2 = $_POST['op2'];
+// subclasses for trig functions
+class SinOp extends SingleOp {
+  public function operate() {
+    return sin($this->operand_1);
   }
-  $err = Array();
-
-
-// Instantiate an object for each operation based on the values returned on the form
-// For example, check to make sure that $_POST is set and then check its value and 
-// instantiate its object
-// 
-// The Add is done below.  Go ahead and finish the remiannig functions.  
-// Then tell me if there is a way to do this without the ifs
-// We might cover such a way on Tuesday...
-
-  try {
-    if (isset($_POST['add']) && $_POST['add'] == 'Add') {
-      $op = new Addition($o1, $o2);
-    }
-    // Put code for subtraction, multiplication, and division here
-    if (isset($_POST['sub']) && $_POST['sub'] == 'Subtract') {
-      $op = new Subtraction($o1, $o2);
-    }
-    if (isset($_POST['divi']) && $_POST['divi'] == 'Divide') {
-      $op = new Division($o1, $o2);
-    }
-    if (isset($_POST['mult']) && $_POST['mult'] == 'Multiply') {
-      $op = new Multiplication($o1, $o2);
-    }
-    if (isset($_POST['10tovar']) && $_POST['10tovar'] == '10^x') {
-      $op = new TentoVar($o1);
-    }
-    if (isset($_POST['etovar']) && $_POST['etovar'] == 'e^x') {
-      $op = new EtoVar($o1);
-    }
-    if (isset($_POST['varto2']) && $_POST['varto2'] == 'x^2') {
-      $op = new varto2($o1);
-    }
-    if (isset($_POST['vartovar']) && $_POST['vartovar'] == 'x^y') {
-      $op = new vartovar($o1, $o2);
-    }
+  public function getEquation() {
+    return 'sin(' . $this->operand_1 . ') = ' . $this->operate();
   }
-  catch (Exception $e) {
-    $err[] = $e->getMessage();
+}
+class CosOp extends SingleOp {
+  public function operate() {
+    return cos($this->operand_1);
   }
+  public function getEquation() {
+    return 'cos(' . $this->operand_1 . ') = ' . $this->operate();
+  }
+}
+class TanOp extends SingleOp {
+  public function operate() {
+    return tan($this->operand_1);
+  }
+  public function getEquation() {
+    return 'tan(' . $this->operand_1 . ') = ' . $this->operate();
+  }
+}
+
+
+// Get POST vars if calculation submitted
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $o1 = $_POST['op1'];
+  $o2 = $_POST['op2'];
+}
+$err = Array();
+
+// Try to calculate
+try {
+  if (isset($_POST['add']))      $op = new Addition($o1, $o2);
+  if (isset($_POST['sub']))      $op = new Subtraction($o1, $o2);
+  if (isset($_POST['divi']))     $op = new Division($o1, $o2);
+  if (isset($_POST['mult']))     $op = new Multiplication($o1, $o2);
+  if (isset($_POST['10tovar']))  $op = new TentoVar($o1);
+  if (isset($_POST['etovar']))   $op = new EtoVar($o1);
+  if (isset($_POST['varto2']))   $op = new varto2($o1);
+  if (isset($_POST['vartovar'])) $op = new vartovar($o1, $o2);
+  if (isset($_POST['sin']))      $op = new SinOp($o1);
+  if (isset($_POST['cos']))      $op = new CosOp($o1);
+  if (isset($_POST['tan']))      $op = new TanOp($o1);
+  if (isset($_POST['sqrt']))     $op = new SquareRoot($o1);
+}
+
+// Show error
+catch (Exception $e) {
+  $err[] = $e->getMessage();
+}
+
 ?>
 
 <!doctype html>
@@ -165,46 +174,39 @@ class vartovar extends Operation {
   <link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 <body>
-  
   <section id="calculator">
     <h1>Welcome to php Calculator!</h1>
     <h2>input some values & select an operation below!</h2>
     <p>if using a single input operation, put the variable in the first input box</p>
     <form method="post" action="calculator.php">
-    <pre id="result">
-      <?php 
-        if (isset($op)) {
-          try {
-            echo $op->getEquation();
-          }
-          catch (Exception $e) { 
-            $err[] = $e->getMessage();
-          }
-        }
-
-        foreach($err as $error) {
+      <pre id="result"><?php if (isset($op)) { echo $op->getEquation(); } ?></pre>
+      <?php
+          foreach($err as $error) {
             echo $error . "\n";
-        } 
+          } 
       ?>
-      </pre>
+      
+
       <section id="inputSection">
         <input type="text" name="op1" id="name" value="" />
         <input type="text" name="op2" id="name" value="" />
       </section>
+
       <!-- Only one of these will be set with their respective value at a time -->
       <section id="basicOps">
         <input type="submit" name="add" value="Add" />  
-        <input type="submit" name="sub" value="Subtract" />  
-        <input type="submit" name="mult" value="Multiply" />  
-        <input type="submit" name="divi" value="Divide" />  
-      </section>
-      <section id="powerOps">
+        <input type="submit" name="sub" value="Sub" />  
+        <input type="submit" name="mult" value="Mult" />  
+        <input type="submit" name="divi" value="Div" />  
         <input type="submit" name="10tovar" value="10^x" />
         <input type="submit" name="etovar" value="e^x" />
         <input type="submit" name="varto2" value="x^2" />
         <input type="submit" name="vartovar" value="x^y" />
+        <input type="submit" name="sin" value="sin(x)" />
+        <input type="submit" name="cos" value="cos(x)" />
+        <input type="submit" name="tan" value="tan(x)" />
+        <input type="submit" name="sqrt" value="sqrt(x)" />
       </section>
-      
     </form>
   </section>
 </body>
