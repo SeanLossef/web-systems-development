@@ -177,6 +177,9 @@ class EtoVar extends SingleOp {
       <section id="powerOps">
         <input type="submit" name="10tovar" value="10^x" />
         <input type="submit" name="etovar" value="e^x" />
+        <input type="submit" name="varto2" value="x^2" />
+        <input type="submit" name="vartovar" value="x^y" />
+        
       </section>
       
     </form>
