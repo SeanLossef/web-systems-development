@@ -203,10 +203,6 @@ class vartovar extends Operation {
         <input type="submit" name="etovar" value="e^x" />
         <input type="submit" name="varto2" value="x^2" />
         <input type="submit" name="vartovar" value="x^y" />
-<<<<<<< HEAD
-=======
-        
->>>>>>> c5cfb69a229db63be215eb0ffc29fc56f428687a
       </section>
       
     </form>
