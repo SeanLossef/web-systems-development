@@ -70,7 +70,7 @@ class TentoVar extends SingleOp {
     return pow(10, $this->operand_1);
   }
   public function getEquation() {
-    return '10^' . $this->operand_1 . ' = ' . $this->operate();
+    return '10<sup>' . $this->operand_1 . '</sup> = ' . $this->operate();
   }
 }
 class EtoVar extends SingleOp {
@@ -78,7 +78,7 @@ class EtoVar extends SingleOp {
     return exp($this->operand_1);
   }
   public function getEquation() {
-    return 'e^' . $this->operand_1 . ' = ' . $this->operate();
+    return 'e<sup>' . $this->operand_1 . '</sup> = ' . $this->operate();
   }
 }
 
@@ -88,7 +88,7 @@ class varto2 extends SingleOp {
     return pow($this->operand_1, 2);
   }
   public function getEquation() {
-    return  $this->operand_1 . '^2'.' = '. $this->operate();
+    return  $this->operand_1 . '<sup>2</sup>'.' = '. $this->operate();
   }
 }
 class vartovar extends Operation {
@@ -96,7 +96,25 @@ class vartovar extends Operation {
     return pow($this->operand_1, $this->operand_2);
   }
   public function getEquation() {
-    return  $this->operand_1.'^' . $this->operand_2 . ' = ' . $this->operate();
+    return $this->operand_1.'<sup>' . $this->operand_2 . '</sup> = ' . $this->operate();
+  }
+}
+class SquareRoot extends SingleOp {
+  public function operate() {
+    return sqrt($this->operand_1);
+  }
+  public function getEquation() {
+    return 'sqrt(' . $this->operand_1 . ') = ' . $this->operate();
+  }
+}
+
+// subclasses for trig functions
+class SinOp extends SingleOp {
+  public function operate() {
+    return sin($this->operand_1);
+  }
+  public function getEquation() {
+    return 'sin(' . $this->operand_1 . ') = ' . $this->operate();
   }
 }
 class Log extends Operation {
@@ -206,9 +224,16 @@ class ln extends SingleOp {
 
         foreach($err as $error) {
             echo $error . "\n";
+<<<<<<< Updated upstream
         }
       ?>
       </pre>
+=======
+          }
+      ?>
+
+
+>>>>>>> Stashed changes
       <section id="inputSection">
         <input type="text" name="op1" id="name" value="" />
         <input type="text" name="op2" id="name" value="" />
@@ -216,11 +241,17 @@ class ln extends SingleOp {
       <!-- Only one of these will be set with their respective value at a time -->
       <section id="basicOps">
         <input type="submit" name="add" value="Add" />
+<<<<<<< Updated upstream
         <input type="submit" name="sub" value="Subtract" />
         <input type="submit" name="mult" value="Multiply" />
         <input type="submit" name="divi" value="Divide" />
       </section>
       <section id="powerOps">
+=======
+        <input type="submit" name="sub" value="Sub" />
+        <input type="submit" name="mult" value="Mult" />
+        <input type="submit" name="divi" value="Div" />
+>>>>>>> Stashed changes
         <input type="submit" name="10tovar" value="10^x" />
         <input type="submit" name="etovar" value="e^x" />
         <input type="submit" name="varto2" value="x^2" />
