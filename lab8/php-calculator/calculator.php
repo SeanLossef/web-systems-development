@@ -225,8 +225,8 @@ class LogNatural extends SingleOp {
         <input type="submit" name="etovar" value="e^x" />
         <input type="submit" name="varto2" value="x^2" />
         <input type="submit" name="vartovar" value="x^y" />
-        <input type="submit" name="log" value="Log" />
-        <input type="submit" name="logNatural" value = "LogNatural" />
+        <input type="submit" name="log" value="log" />
+        <input type="submit" name="logNatural" value = "ln" />
 
       </section>
 
