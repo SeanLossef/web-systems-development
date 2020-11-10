@@ -107,7 +107,7 @@ class Log extends Operation {
     return 'log<sub>'.$this->operand_2 . "</sub>(" . $this->operand_1 . ') = ' . $this->operate();
   }
 }
-class LogNatural extends SingleOp {
+class ln extends SingleOp {
   public function operate() {
     return log($this->operand_1);
   }
@@ -168,11 +168,11 @@ class LogNatural extends SingleOp {
     if (isset($_POST['vartovar']) && $_POST['vartovar'] == 'x^y') {
       $op = new vartovar($o1, $o2);
     }
-    if (isset($_POST['log']) && $_POST['log'] == 'Log') {
+    if (isset($_POST['log']) && $_POST['log'] == 'log') {
       $op = new Log($o1, $o2);
     }
-    if (isset($_POST['logNatural']) && $_POST['logNatural'] == 'LogNatural') {
-      $op = new LogNatural($o1, $o2);
+    if (isset($_POST['ln']) && $_POST['ln'] == 'ln') {
+      $op = new ln($o1, $o2);
     }
   }
   catch (Exception $e) {
@@ -226,7 +226,7 @@ class LogNatural extends SingleOp {
         <input type="submit" name="varto2" value="x^2" />
         <input type="submit" name="vartovar" value="x^y" />
         <input type="submit" name="log" value="log" />
-        <input type="submit" name="logNatural" value = "ln" />
+        <input type="submit" name="ln" value = "ln" />
 
       </section>
 
