@@ -227,10 +227,7 @@ class LogNatural extends SingleOp {
         <input type="submit" name="vartovar" value="x^y" />
         <input type="submit" name="log" value="Log" />
         <input type="submit" name="logNatural" value = "LogNatural" />
-<<<<<<< HEAD
-=======
 
->>>>>>> c5cfb69a229db63be215eb0ffc29fc56f428687a
       </section>
 
     </form>
