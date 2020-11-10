@@ -227,10 +227,6 @@ class ln extends SingleOp {
         }
       ?>
       </pre>
-          }
-      ?>
-
-
       <section id="inputSection">
         <input type="text" name="op1" id="name" value="" />
         <input type="text" name="op2" id="name" value="" />
@@ -243,9 +239,6 @@ class ln extends SingleOp {
         <input type="submit" name="divi" value="Divide" />
       </section>
       <section id="powerOps">
-        <input type="submit" name="sub" value="Sub" />
-        <input type="submit" name="mult" value="Mult" />
-        <input type="submit" name="divi" value="Div" />
         <input type="submit" name="10tovar" value="10^x" />
         <input type="submit" name="etovar" value="e^x" />
         <input type="submit" name="varto2" value="x^2" />
