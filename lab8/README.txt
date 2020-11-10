@@ -9,3 +9,7 @@ Charles:
 Sean:
 -implemented trig equations and square root
 -styled the app to look like a calculator, spaced buttons in grid, and styled result as large box
+
+Colleen:
+-implemented log and natural log equations
+-styled functions with superscripts and subscripts to appear that way stylistically
