@@ -224,16 +224,13 @@ class ln extends SingleOp {
 
         foreach($err as $error) {
             echo $error . "\n";
-<<<<<<< Updated upstream
         }
       ?>
       </pre>
-=======
           }
       ?>
 
 
->>>>>>> Stashed changes
       <section id="inputSection">
         <input type="text" name="op1" id="name" value="" />
         <input type="text" name="op2" id="name" value="" />
@@ -241,17 +238,14 @@ class ln extends SingleOp {
       <!-- Only one of these will be set with their respective value at a time -->
       <section id="basicOps">
         <input type="submit" name="add" value="Add" />
-<<<<<<< Updated upstream
         <input type="submit" name="sub" value="Subtract" />
         <input type="submit" name="mult" value="Multiply" />
         <input type="submit" name="divi" value="Divide" />
       </section>
       <section id="powerOps">
-=======
         <input type="submit" name="sub" value="Sub" />
         <input type="submit" name="mult" value="Mult" />
         <input type="submit" name="divi" value="Div" />
->>>>>>> Stashed changes
         <input type="submit" name="10tovar" value="10^x" />
         <input type="submit" name="etovar" value="e^x" />
         <input type="submit" name="varto2" value="x^2" />
