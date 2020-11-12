@@ -1,53 +1,50 @@
 Colleen - Completed part one and 1-5 of part two. Decided to change the phone into a varchar instead of an int to fix the size issue, as well as ensure that preceding 0's wouldn't be cut off.
 
-
-
-
 ## Part One
 
 CREATE TABLE Courses (  
-    crn INT(11),  
-    prefix VARCHAR(4) NOT NULL,  
-    number SMALLINT(4) NOT NULL,  
-    title VARCHAR(255) NOT NULL,  
-    PRIMARY KEY (crn)  
+ crn INT(11),  
+ prefix VARCHAR(4) NOT NULL,  
+ number SMALLINT(4) NOT NULL,  
+ title VARCHAR(255) NOT NULL,  
+ PRIMARY KEY (crn)  
 );
 
 CREATE TABLE students (  
-    RIN INT(9),  
-    RCSID CHAR(7),  
-    fname VARCHAR(100) NOT NULL,  
-    lname VARCHAR(100) NOT NULL,  
-    alias VARCHAR(100) NOT NULL,  
-    phone INT(10),  
-    PRIMARY KEY(RIN)  
-);  
+ RIN INT(9),  
+ RCSID CHAR(7),  
+ fname VARCHAR(100) NOT NULL,  
+ lname VARCHAR(100) NOT NULL,  
+ alias VARCHAR(100) NOT NULL,  
+ phone INT(10),  
+ PRIMARY KEY(RIN)  
+);
 
 ## Part Two
 
 ALTER TABLE students  
-	ADD street VARCHAR(255);  
+ ADD street VARCHAR(255);  
 ALTER TABLE students  
-	ADD city VARCHAR(100);  
+ ADD city VARCHAR(100);  
 ALTER TABLE students  
-	ADD state VARCHAR(100);  
+ ADD state VARCHAR(100);  
 ALTER TABLE students  
-	ADD zip VARCHAR(5);  
+ ADD zip VARCHAR(5);
 
 ALTER TABLE courses  
-	ADD section INT(2);  
+ ADD section INT(2);  
 ALTER TABLE courses  
-	ADD year INT(4);  
+ ADD year INT(4);
 
 CREATE TABLE grades (  
-  id INT(10) AUTO_INCREMENT,  
-  crn INT(11),  
-  RIN INT(9),  
-  grade INT(3) NOT NULL,  
-  PRIMARY KEY (id),  
-  FOREIGN KEY (crn) REFERENCES courses(crn),  
-  FOREIGN KEY (RIN) REFERENCES students(RIN)  
-);  
+ id INT(10) AUTO_INCREMENT,  
+ crn INT(11),  
+ RIN INT(9),  
+ grade INT(3) NOT NULL,  
+ PRIMARY KEY (id),  
+ FOREIGN KEY (crn) REFERENCES courses(crn),  
+ FOREIGN KEY (RIN) REFERENCES students(RIN)  
+);
 
 INSERT INTO courses(crn, prefix, number, title, section, year)  
 VALUES (27709, 'ITWS', 2110, 'Web Systems Development', 01, 2020);  
@@ -56,7 +53,7 @@ VALUES (25870, 'ITWS', 4310, 'Managing IT Resources', 01, 2020);
 INSERT INTO courses(crn, prefix, number, title, section, year)  
 VALUES (94632, 'PSYC', 4730, 'Positive Psychology', 01, 2020);  
 INSERT INTO courses(crn, prefix, number, title, section, year)  
-VALUES (46443, 'CSCI', 1100, 'Computer Science I', 06, 2017);  
+VALUES (46443, 'CSCI', 1100, 'Computer Science I', 06, 2017);
 
 INSERT INTO students(RIN, RCSID, fname, lname, alias, phone, street, city, state, zip)  
 VALUES (661610000, 'galles', 'Stephen', 'Gallegos', 'Stephen', '2036975822', '4509 Asylum Avenue', 'Wallingford', 'Connecticut', 06492);  
@@ -65,4 +62,25 @@ VALUES (661712345, 'vasqua', 'Amanda', 'Vasquez', 'Amanda', '9369672651', '3075 
 INSERT INTO students(RIN, RCSID, fname, lname, alias, phone, street, city, state, zip)  
 VALUES (661510768, 'wheelc', 'Clifford', 'Wheeler', 'Cliff', '2767797126', '1445 Payne Street', 'Wytheville', 'Virginia', 24382);  
 INSERT INTO students(RIN, RCSID, fname, lname, alias, phone, street, city, state, zip)  
-VALUES (661810552, 'andrea', 'Andrea', 'Andrews', 'Andrea', '2532670487', '1195 Hillcrest Drive', 'Tacoma', 'Washington', 98402);  
+VALUES (661810552, 'andrea', 'Andrea', 'Andrews', 'Andrea', '2532670487', '1195 Hillcrest Drive', 'Tacoma', 'Washington', 98402);
+
+INSERT INTO grades(id, crn, RIN, grade)
+VALUES (1, 94632, 661610000, 69);
+VALUES (2, 27709, 661810552, 98);
+VALUES (3, 27709, 661510768, 74);
+VALUES (4, 27709, 661712345, 99);
+VALUES (5, 25870, 661610000, 69);
+VALUES (6, 25870, 661810552, 100);
+VALUES (7, 25870, 661510768, 74);
+VALUES (8, 94632, 661712345, 75);
+VALUES (9, 27709, 661610000, 87);
+VALUES (10, 46443, 661810552, 87);
+
+SELECT \* FROM students ORDER BY RIN, lname, RCSID, fname;
+
+SELECT RIN, fname, lname, street, city, state , zip FROM students
+WHERE RIN IN(SELECT RIN FROM grades WHERE grade > 90)
+
+SELECT c.prefix, c.number, c.title, g.crn, AVG(g.grade) AS AverageGrade FROM courses AS c INNER JOIN grades AS g ON c.crn = g.crn GROUP BY g.crn
+
+SELECT c.prefix, c.number, c.title, g.crn, COUNT(g.crn) AS NumberStudents FROM courses AS c INNER JOIN grades AS g ON c.crn = g.crn
