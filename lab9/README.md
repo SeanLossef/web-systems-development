@@ -1,4 +1,5 @@
 Colleen - Completed part one and 1-5 of part two. Decided to change the phone into a varchar instead of an int to fix the size issue, as well as ensure that preceding 0's wouldn't be cut off.
+Charles - Completed Part two 6-10.
 
 ## Part One
 
@@ -66,21 +67,52 @@ VALUES (661810552, 'andrea', 'Andrea', 'Andrews', 'Andrea', '2532670487', '1195 
 
 INSERT INTO grades(id, crn, RIN, grade)
 VALUES (1, 94632, 661610000, 69);
+INSERT INTO grades(id, crn, RIN, grade)
 VALUES (2, 27709, 661810552, 98);
+INSERT INTO grades(id, crn, RIN, grade)
 VALUES (3, 27709, 661510768, 74);
+INSERT INTO grades(id, crn, RIN, grade)
 VALUES (4, 27709, 661712345, 99);
+INSERT INTO grades(id, crn, RIN, grade)
 VALUES (5, 25870, 661610000, 69);
+INSERT INTO grades(id, crn, RIN, grade)
 VALUES (6, 25870, 661810552, 100);
+INSERT INTO grades(id, crn, RIN, grade)
 VALUES (7, 25870, 661510768, 74);
+INSERT INTO grades(id, crn, RIN, grade)
 VALUES (8, 94632, 661712345, 75);
+INSERT INTO grades(id, crn, RIN, grade)
 VALUES (9, 27709, 661610000, 87);
+INSERT INTO grades(id, crn, RIN, grade)
 VALUES (10, 46443, 661810552, 87);
 
 SELECT \* FROM students ORDER BY RIN, lname, RCSID, fname;
 
+RIN RCSID fname lname alias phone street city state zip
+661510768 wheelc Clifford Wheeler Cliff 2147483647 1445 Payne Street Wytheville Virginia 24382
+661610000 galles Stephen Gallegos Stephen 2036975822 4509 Asylum Avenue Wallingford Connecticut 6492
+661712345 vasqua Amanda Vasquez Amanda 2147483647 3075 Norma Avenue Blanchard Texas 77530
+661810552 andrea Andrea Andrews Andrea 2147483647 1195 Hillcrest Drive Tacoma Washington 98402
+
 SELECT RIN, fname, lname, street, city, state , zip FROM students
 WHERE RIN IN(SELECT RIN FROM grades WHERE grade > 90)
 
+RIN fname lname street city state zip
+661712345 Amanda Vasquez 3075 Norma Avenue Blanchard Texas 77530
+661810552 Andrea Andrews 1195 Hillcrest Drive Tacoma Washington 98402
+
 SELECT c.prefix, c.number, c.title, g.crn, AVG(g.grade) AS AverageGrade FROM courses AS c INNER JOIN grades AS g ON c.crn = g.crn GROUP BY g.crn
 
-SELECT c.prefix, c.number, c.title, g.crn, COUNT(g.crn) AS NumberStudents FROM courses AS c INNER JOIN grades AS g ON c.crn = g.crn
+prefix number title crn AverageGrade
+ITWS 4310 Managing IT Resources 25870 81.0000
+ITWS 2110 Web Systems Development 27709 89.5000
+CSCI 1100 Computer Science I 46443 87.0000
+PSYC 4730 Positive Psychology 94632 72.0000
+
+SELECT c.prefix, c.number, c.title, g.crn, COUNT(g.crn) AS NumberStudents FROM courses AS c INNER JOIN grades AS g ON c.crn = g.crn GROUP BY g.crn
+
+prefix number title crn NumberStudents
+ITWS 4310 Managing IT Resources 25870 3
+ITWS 2110 Web Systems Development 27709 4
+CSCI 1100 Computer Science I 46443 1
+PSYC 4730 Positive Psychology 94632 2
