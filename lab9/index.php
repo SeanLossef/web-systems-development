@@ -8,8 +8,8 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     </head>
     <body>
-        <section id="students">
-            <h3>Add Student</h3>
+        <section id="students" class="formSection">
+            <h2>Add Student</h2>
             <form id="addStudent" name="addStudent" action="index.php" method="post" onsubmit="return validate(this);">
             <fieldset> 
                 <div class="formData">    
@@ -49,8 +49,8 @@
             </form>
         </section>
 
-        <section id="grades">
-            <h3>Add Grade</h3>
+        <section id="grades" class="formSection">
+            <h2>Add Grade</h2>
             <form id="addGrade" name="addGrade" action="index.php" method="post" onsubmit="return validate(this);">
             <fieldset> 
                 <div class="formData">   
@@ -69,8 +69,8 @@
             </form>
         </section>
 
-        <section id="courses">
-            <h3>Add Course</h3>
+        <section id="courses" class="formSection">
+            <h2>Add Course</h2>
             <form id="addCourse" name="addCourse" action="index.php" method="post" onsubmit="return validate(this);">
             <fieldset> 
                 <div class="formData">   
@@ -92,7 +92,7 @@
                     <label class="field" for="year">Year:</label>
                     <div class="value"><input type="text" size="10" maxlength="4" name="year" id="year"/></div>
 
-                    <input type="submit" value="save" id="saveGrade" name="saveGrade"/>
+                    <input type="submit" value="save" id="saveCourse" name="saveCourse"/>
                 </div>
             </fieldset>
             </form>

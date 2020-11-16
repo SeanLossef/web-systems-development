@@ -1,0 +1,57 @@
+/*** FONT IMPORTS: ***/
+@import url('https://fonts.googleapis.com/css2?family=Viga&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+/*** GENERAL ELEMENTS: ***/
+:root {
+    --main-color-light:#B8CACC;
+    --main-color-medium: #4F6367;
+    --main-color-dark: #121617;
+
+    --gray-light: #F3F3F3;
+    --gray-medium: #E0E0E0;
+
+    --red: #8f4747;
+    --green: #588856;
+    --highlight: #B33951;
+}
+* {
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+    min-height: 100%;
+}
+body {
+    margin: 0 auto;
+    background-color: var(--gray-light);
+    font-family: 'Ubuntu', sans-serif;
+    color: var(--main-color-dark);
+    height: 0;
+}
+
+h2 {
+    font-family: 'Viga',sans-serif;
+    letter-spacing: 2px;
+    font-size: 25px;
+}
+
+.fltLeft {
+  float: left;
+}
+.fltRight {
+  float: right;
+}
+
+/*** FORMS: ***/
+.formSection {
+    padding: 0 10%;
+}
+input {
+    font-family: 'Ubuntu',sans-serif;
+}
+input[type=submit] {
+    margin-top: 10px;
+}
+
+
