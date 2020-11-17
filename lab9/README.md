@@ -1,9 +1,7 @@
 Colleen - Completed part one and 1-5 of part two. Decided to change the phone into a varchar instead of an int to fix the size issue, as well as ensure that preceding 0's wouldn't be cut off.
 Charles - Completed Part two 6-10.
-Patricia - Completed some of Part 3. 
-	- HTML forms for index.php
-	- minor CSS: fonts, positioning
-	- database connection + functionality for adding students
+Patricia - Completed some of Part 3. - HTML forms for index.php - minor CSS: fonts, positioning - database connection + functionality for adding students
+Sean - Completed rest of Part 3, cleaned up php error correction and form captures, exported schema to sql file.
 
 ## Part One
 
