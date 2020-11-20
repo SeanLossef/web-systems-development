@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background: #c3bf9e;
+}
+
+h1 {
+  text-align: center;
+}
+
+.cont {
+  display: block;
+  max-width: 800px;
+  background: #ffffff99;
+  margin: auto;
+  text-align: center;
+}
+
+.results {
+  width: 100%;
+}
+.results td {
+  padding: 20px 20px;
+}
+.results td.name {
+  text-align: left;
+  font-weight: bold;
+}
+.results td.discount span {
+  display: inline-block;
+  font-weight: bold;
+  color: #a00;
+  transform: rotate(-15deg);
+}
+.results td.price {
+}
+.results td.discounted {
+  font-weight: bold;
+}
+.results td.discounted span {
+  display: inline-block;
+  padding-right: 10px;
+  font-size: 12px;
+  color: #666;
+}
+
+a.button {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: bold;
+  background: white;
+  border-radius: 4px;
+  color: #000066;
+  padding: 10px 16px;
+  margin: 5px 10px;
+}
+a.button:hover {
+  box-shadow: 1px 1px 4px #00000066 inset;
+}
